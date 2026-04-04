@@ -1,15 +1,11 @@
 from rag.pipeline import RAGPipeline
 
+pipeline = RAGPipeline()
 
-p = RAGPipeline()
-
-p.ingest_document(
-
-    "Employees receive 20 days vacation annually."
-
+pipeline.ingest_document(
+    "Employees receive 20 days annual leave."
 )
 
-print(
+result = pipeline.query("vacation policy")
 
-    p.query("How many vacation days?")
-)
+print(result)

@@ -1,8 +1,9 @@
 import numpy as np
 
-def cosine_similarity(a,b):
 
-    return np.dot(a,b)/(np.linalg.norm(a)*np.linalg.norm(b))
+def cosine_similarity(a, b):
+
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
 
 class VectorIndex:
@@ -10,20 +11,18 @@ class VectorIndex:
     def __init__(self):
 
         self.texts = []
-
         self.vectors = []
 
-    def add(self,text,vector):
+    def add(self, text, vector):
 
         self.texts.append(text)
-
         self.vectors.append(vector)
 
-    def search(self,query_vector,top_k=3):
+    def search(self, query_vector, top_k=3):
 
         scores = [
 
-            cosine_similarity(query_vector,v)
+            cosine_similarity(query_vector, v)
 
             for v in self.vectors
 
@@ -31,7 +30,7 @@ class VectorIndex:
 
         ranked = sorted(
 
-            zip(scores,self.texts),
+            zip(scores, self.texts),
 
             key=lambda x: x[0],
 

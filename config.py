@@ -1,0 +1,2 @@
+EMBEDDING_PROVIDER = "local"
+TOP_K = 3

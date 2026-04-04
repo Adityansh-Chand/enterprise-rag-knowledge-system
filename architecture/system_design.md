@@ -1,13 +1,9 @@
-RAG architecture:
+Flagship RAG architecture
 
 documents
-
 → chunking
-
-→ embedding
-
-→ vector search
-
-→ prompt construction
-
-→ generation
+→ embeddings
+→ similarity scoring
+→ retrieval
+→ reasoning layer
+→ structured answer

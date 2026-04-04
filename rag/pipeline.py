@@ -1,10 +1,8 @@
 from rag.chunker import chunk_document
-
-from rag.embedder import simple_embedding
-
+from rag.embedder import embed
 from rag.retriever import VectorIndex
-
-from rag.generator import build_prompt
+from rag.generator import build_response
+from config import TOP_K
 
 
 class RAGPipeline:
@@ -13,22 +11,20 @@ class RAGPipeline:
 
         self.index = VectorIndex()
 
-    def ingest_document(self,text):
+    def ingest_document(self, text):
 
         chunks = chunk_document(text)
 
         for c in chunks:
 
-            v = simple_embedding(c)
+            self.index.add(c, embed(c))
 
-            self.index.add(c,v)
+    def query(self, q):
 
-    def query(self,q):
+        q_vec = embed(q)
 
-        q_vec = simple_embedding(q)
-
-        results = self.index.search(q_vec)
+        results = self.index.search(q_vec, top_k=TOP_K)
 
         context = "\n".join([r[1] for r in results])
 
-        return build_prompt(context,q)
+        return build_response(context, results, q)
