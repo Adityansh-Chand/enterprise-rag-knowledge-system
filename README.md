@@ -165,3 +165,9 @@ This project demonstrates practical design patterns used in real-world AI system
 # License
 
 MIT
+
+---
+
+# License
+
+MIT License
