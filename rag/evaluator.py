@@ -1,5 +1,5 @@
-def recall_at_k(results, expected_text):
+def precision_at_k(results, expected):
 
     retrieved = [r[1] for r in results]
 
-    return int(expected_text in " ".join(retrieved))
+    return int(expected in " ".join(retrieved))

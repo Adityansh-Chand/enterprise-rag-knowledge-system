@@ -1,0 +1,13 @@
+[
+
+{
+"query":"remote work policy",
+"expected":"Remote work is allowed"
+},
+
+{
+"query":"vacation days",
+"expected":"20 days"
+}
+
+]

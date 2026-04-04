@@ -1,9 +1,28 @@
 Flagship RAG architecture
 
+Hybrid Retrieval:
+
+vector similarity
++
+keyword scoring
+
+Pipeline:
+
 documents
-→ chunking
+→ semantic chunking
 → embeddings
-→ similarity scoring
-→ retrieval
+→ hybrid retrieval
+→ reranking
 → reasoning layer
 → structured answer
+
+Evaluation:
+
+precision@k
+
+Extensible components:
+
+embedding providers
+retrievers
+rerankers
+LLM generators
