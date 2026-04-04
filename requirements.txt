@@ -1,6 +1,4 @@
-
 fastapi
 uvicorn
-pandas
-scikit-learn
 numpy
+pytest
