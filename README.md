@@ -1,22 +1,29 @@
 
-# Enterprise Rag Knowledge System
+# Enterprise RAG Knowledge System
 
-AI engineering project demonstrating modular pipeline design, evaluation awareness, and production-style architecture.
+Production Retrieval-Augmented Generation pipeline designed using modular AI architecture patterns.
 
-## Key Capabilities
+## Architecture
 
-• config-driven pipelines
-• modular components
-• evaluation scaffold
-• logging enabled
-• test structure
+```mermaid
+flowchart LR
+Documents --> Chunker
+Chunker --> Embedder
+Embedder --> VectorDB
+VectorDB --> Retriever
+Retriever --> Reranker
+Reranker --> Generator
+Generator --> Evaluator
+``
 
-## Engineering Focus
+## Pipeline
+documents â†’ chunk â†’ embed â†’ retrieve â†’ rerank â†’ generate â†’ evaluate
 
-reproducible pipelines
-structured reasoning
-extensible architecture
+### Highlights
+semantic chunking
+reranking abstraction
+confidence scoring
+evaluation scaffold
 
 ## License
-
 MIT
