@@ -20,9 +20,9 @@ Generator --> Evaluator
 documents → chunk → embed → retrieve → rerank → generate → evaluate
 
 ### Highlights
-semantic chunking
-reranking abstraction
-confidence scoring
+semantic chunking, 
+reranking abstraction, 
+confidence scoring and 
 evaluation scaffold
 
 ## License
