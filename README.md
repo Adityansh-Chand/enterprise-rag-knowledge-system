@@ -14,7 +14,7 @@ VectorDB --> Retriever
 Retriever --> Reranker
 Reranker --> Generator
 Generator --> Evaluator
-``
+```
 
 ## Pipeline
 documents → chunk → embed → retrieve → rerank → generate → evaluate
