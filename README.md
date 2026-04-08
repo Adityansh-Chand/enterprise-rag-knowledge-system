@@ -23,7 +23,7 @@ documents → chunk → embed → retrieve → rerank → generate → evaluate
 semantic chunking, 
 reranking abstraction, 
 confidence scoring and 
-evaluation scaffold
+evaluation scaffold.
 
 ## License
 MIT
