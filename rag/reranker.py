@@ -1,11 +1,3 @@
-def rerank(results):
 
-    return sorted(
-
-        results,
-
-        key=lambda x: x[0],
-
-        reverse=True
-
-    )
+def rerank(query, docs):
+    return sorted(docs, key=lambda x: len(str(x)), reverse=True)

@@ -1,0 +1,5 @@
+
+[
+ {"query":"remote work policy","expected_doc":"policy_section_3"},
+ {"query":"leave policy","expected_doc":"policy_section_1"}
+]
