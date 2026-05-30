@@ -13,4 +13,5 @@ def test_pipeline():
 
     r = p.query("Can I work remotely?")
 
-    assert "remote" in r.lower()
+    assert "Remote work allowed" in r["answer"]
+    assert r["sources"]

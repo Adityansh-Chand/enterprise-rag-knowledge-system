@@ -1,17 +1,23 @@
 import numpy as np
 from collections import Counter
 
+from rag.embedder import tokenize
+
 
 def cosine_similarity(a,b):
 
-    return np.dot(a,b)/(np.linalg.norm(a)*np.linalg.norm(b))
+    denominator = np.linalg.norm(a) * np.linalg.norm(b)
+    if denominator == 0:
+        return 0.0
+
+    return float(np.dot(a,b)/denominator)
 
 
 def keyword_score(query, text):
 
-    q_tokens = query.lower().split()
+    q_tokens = tokenize(query)
 
-    t_tokens = text.lower().split()
+    t_tokens = tokenize(text)
 
     overlap = Counter(q_tokens) & Counter(t_tokens)
 
@@ -44,7 +50,9 @@ class HybridRetriever:
 
             keyword = keyword_score(query,text)
 
-            combined = 0.7*semantic + 0.3*(keyword>0)
+            lexical = min(1.0, keyword / max(1, len(set(tokenize(query)))))
+
+            combined = 0.65*semantic + 0.35*lexical
 
             scores.append((combined,text))
 

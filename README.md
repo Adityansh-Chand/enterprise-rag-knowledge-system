@@ -1,29 +1,45 @@
-
 # Enterprise RAG Knowledge System
 
-Production Retrieval-Augmented Generation pipeline designed using modular AI architecture patterns.
+Production-style Retrieval-Augmented Generation scaffold with sentence chunking,
+local hashed embeddings, hybrid retrieval, reranking, grounded answer generation,
+and lightweight retrieval evaluation.
 
-## Architecture
+## Pipeline
 
 ```mermaid
 flowchart LR
-Documents --> Chunker
-Chunker --> Embedder
-Embedder --> VectorDB
-VectorDB --> Retriever
-Retriever --> Reranker
-Reranker --> Generator
-Generator --> Evaluator
+  Documents --> Chunker
+  Chunker --> Embedder
+  Embedder --> Retriever
+  Retriever --> Reranker
+  Reranker --> Generator
+  Generator --> Evaluator
 ```
 
-## Pipeline
-documents → chunk → embed → retrieve → rerank → generate → evaluate
+## API
 
-### Highlights
-semantic chunking, 
-reranking abstraction, 
-confidence scoring and 
-evaluation scaffold.
+- `GET /health`
+- `GET /query?q=remote work policy`
+- `POST /query` with `{ "query": "remote work policy" }`
+
+## Run
+
+```bash
+pip install -r requirements.txt
+python -m pytest -q
+python evaluation/run_eval.py
+uvicorn api.server:app --reload --port 8000
+```
+
+## Highlights
+
+- Overlapping sentence chunking.
+- Local deterministic embedding provider.
+- Hybrid semantic and lexical retrieval.
+- Query-aware reranking.
+- Source-bearing structured responses.
+- Evaluation scaffold with bundled HR policy queries.
 
 ## License
+
 MIT
