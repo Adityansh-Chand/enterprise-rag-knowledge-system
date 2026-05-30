@@ -11,6 +11,7 @@ class RAGPipeline:
     def __init__(self):
 
         self.index = HybridRetriever()
+        self.document_count = 0
 
 
     def ingest_document(self,text):
@@ -20,6 +21,7 @@ class RAGPipeline:
         for c in chunks:
 
             self.index.add(c,embed(c))
+            self.document_count += 1
 
 
     def query(self,q):
@@ -28,7 +30,7 @@ class RAGPipeline:
 
         results = self.index.search(q,q_vec,TOP_K)
 
-        results = rerank(results)
+        results = rerank(q,results)
 
         context = "\n".join([r[1] for r in results])
 

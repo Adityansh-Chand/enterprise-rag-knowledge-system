@@ -1,21 +1,19 @@
 import json
-from rag.pipeline import RAGPipeline
+import sys
+from pathlib import Path
 
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from rag.pipeline import RAGPipeline
 
 pipeline = RAGPipeline()
 
-pipeline.ingest_document(
-
-open("datasets/knowledge_base/hr_policy.txt").read()
-
-)
+pipeline.ingest_document((ROOT / "datasets" / "knowledge_base" / "hr_policy.txt").read_text(encoding="utf-8"))
 
 
-data = json.load(
-
-open("datasets/eval_queries.json")
-
-)
+data = json.loads((ROOT / "datasets" / "eval_queries.json").read_text(encoding="utf-8"))
 
 
 correct = 0

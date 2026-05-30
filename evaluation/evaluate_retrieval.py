@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 from rag.pipeline import RAGPipeline
 
 pipeline = RAGPipeline()
@@ -8,4 +14,5 @@ pipeline.ingest_document(
 
 result = pipeline.query("vacation policy")
 
-print(result)
+print(result["answer"])
+print("confidence", result["confidence"])
