@@ -1,0 +1,19 @@
+{
+  "documents": {
+    "document_id": "string",
+    "tenant_id": "string",
+    "title": "string",
+    "source_uri": "string",
+    "classification": "public | internal | confidential",
+    "content": "string",
+    "updated_at": "ISO-8601 timestamp"
+  },
+  "queries": {
+    "query_id": "string",
+    "tenant_id": "string",
+    "user_id": "string",
+    "query": "string",
+    "expected_source_ids": ["string"],
+    "created_at": "ISO-8601 timestamp"
+  }
+}
