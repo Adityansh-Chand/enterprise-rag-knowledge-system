@@ -24,6 +24,8 @@ flowchart LR
 - `GET /query?q=remote work policy`
 - `POST /query` with `{ "query": "remote work policy" }`
 
+See `DEMO.md` for terminal demo steps, curl commands, and sample request/response files.
+
 Set `API_KEY` to require `X-API-Key` on query/event endpoints.
 Set `APP_DB_PATH` to control the SQLite event database location.
 

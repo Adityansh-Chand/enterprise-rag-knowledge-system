@@ -1,0 +1,12 @@
+{
+  "events": [
+    {
+      "event_type": "rag_query",
+      "payload": {
+        "query": "What is the remote work policy?",
+        "confidence": 0.35
+      },
+      "created_at": "2026-05-31 10:00:00"
+    }
+  ]
+}
