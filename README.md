@@ -1,6 +1,6 @@
 # Enterprise RAG Knowledge System
 
-Production-style Retrieval-Augmented Generation scaffold with sentence chunking,
+Production-style Retrieval-Augmented Generation service with sentence chunking,
 local hashed embeddings, hybrid retrieval, reranking, grounded answer generation,
 and lightweight retrieval evaluation.
 
@@ -36,6 +36,12 @@ python evaluation/run_eval.py
 uvicorn api.server:app --reload --port 8000
 ```
 
+With the server running, use a second terminal for the smoke check:
+
+```bash
+python scripts/smoke_test.py
+```
+
 Docker:
 
 ```bash
@@ -44,7 +50,8 @@ docker compose up --build
 ```
 
 Kubernetes manifests live in `k8s/deployment.yaml` and include probes, resource
-limits, a Service, and a PVC for the SQLite event store.
+limits, a Service, and a PVC for the SQLite event store. The default manifest
+uses one replica because SQLite is the default event store.
 
 ## Highlights
 
@@ -53,7 +60,7 @@ limits, a Service, and a PVC for the SQLite event store.
 - Hybrid semantic and lexical retrieval.
 - Query-aware reranking.
 - Source-bearing structured responses.
-- Evaluation scaffold with bundled HR policy queries.
+- Evaluation runner with bundled HR policy queries.
 - SQLite event audit trail for query metadata.
 - GitHub Actions CI for tests, eval, and container build.
 - Production data contract in `datasets/production_schema.json`.

@@ -16,7 +16,7 @@ metadata:
   labels:
     app: enterprise-rag
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: enterprise-rag
