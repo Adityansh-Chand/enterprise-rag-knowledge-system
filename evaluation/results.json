@@ -93,5 +93,61 @@
         "hybrid(bm25+dense)": 0.3752
       }
     }
+  },
+  "beir": {
+    "nfcorpus": [
+      {
+        "retriever": "bm25",
+        "n_queries": 323,
+        "recall@1": 0.048,
+        "ndcg@1": 0.3901,
+        "recall@5": 0.1038,
+        "ndcg@5": 0.3128,
+        "recall@10": 0.1326,
+        "ndcg@10": 0.2831,
+        "mrr@10": 0.4881,
+        "index_seconds": 1.77,
+        "query_ms": 10.3
+      },
+      {
+        "retriever": "lsa",
+        "n_queries": 323,
+        "recall@1": 0.036,
+        "ndcg@1": 0.3266,
+        "recall@5": 0.0926,
+        "ndcg@5": 0.2803,
+        "recall@10": 0.1277,
+        "ndcg@10": 0.2613,
+        "mrr@10": 0.4244,
+        "index_seconds": 5.18,
+        "query_ms": 19.7
+      },
+      {
+        "retriever": "dense",
+        "n_queries": 323,
+        "recall@1": 0.0641,
+        "ndcg@1": 0.4598,
+        "recall@5": 0.1421,
+        "ndcg@5": 0.401,
+        "recall@10": 0.1784,
+        "ndcg@10": 0.3727,
+        "mrr@10": 0.5662,
+        "index_seconds": 2475.35,
+        "query_ms": 59.3
+      },
+      {
+        "retriever": "hybrid(bm25+dense)",
+        "n_queries": 323,
+        "recall@1": 0.0531,
+        "ndcg@1": 0.4551,
+        "recall@5": 0.1338,
+        "ndcg@5": 0.3777,
+        "recall@10": 0.1637,
+        "ndcg@10": 0.3423,
+        "mrr@10": 0.5627,
+        "index_seconds": 0.77,
+        "query_ms": 95.8
+      }
+    ]
   }
 }
