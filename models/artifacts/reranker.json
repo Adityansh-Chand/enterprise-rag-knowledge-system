@@ -1,0 +1,20 @@
+{
+  "note": "Fitted by training/train_reranker.py on corpus relevance judgments.",
+  "retriever": "bm25",
+  "candidate_depth": 20,
+  "n_train_queries": 42,
+  "n_test_queries": 18,
+  "intercept": -2.4848444064417134,
+  "weights": {
+    "term_overlap": 0.12479160113691735,
+    "query_coverage": 3.864634291810286,
+    "identifier_match": 4.008906710355245,
+    "title_overlap": 7.891713256257276,
+    "length_ratio": 0.8460374878403221,
+    "reciprocal_rank": 1.2860406795282833
+  },
+  "held_out_ndcg10_before": 0.8889,
+  "held_out_ndcg10_after": 0.8889,
+  "held_out_delta": 0.0,
+  "improves": false
+}
