@@ -1,0 +1,974 @@
+[
+  {
+    "id": "support:ERR-4021:checkout:us-east-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-4021:checkout:eu-west-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:checkout:ap-south-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:payments:us-east-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:payments:eu-west-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:payments:ap-south-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:search:us-east-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:search:eu-west-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:search:ap-south-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:identity:us-east-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:identity:eu-west-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:identity:ap-south-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:billing:us-east-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:billing:eu-west-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-4021:billing:ap-south-1",
+    "topic": "support:ERR-4021",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Payment authorization declined by upstream processor (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:checkout:us-east-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-5503:checkout:eu-west-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:checkout:ap-south-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:payments:us-east-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:payments:eu-west-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:payments:ap-south-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:search:us-east-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:search:eu-west-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:search:ap-south-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:identity:us-east-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:identity:eu-west-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:identity:ap-south-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:billing:us-east-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:billing:eu-west-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-5503:billing:ap-south-1",
+    "topic": "support:ERR-5503",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Elevated p99 latency on request path (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-5503 accompanies sustained p99 latency above the configured budget. Confirm connection pool saturation, inspect slow query logs, and compare the deployment marker against the onset of the regression. Roll back the most recent release if the correlation is clear. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:checkout:us-east-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-3310:checkout:eu-west-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:checkout:ap-south-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:payments:us-east-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:payments:eu-west-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:payments:ap-south-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:search:us-east-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:search:eu-west-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:search:ap-south-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:identity:us-east-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:identity:eu-west-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:identity:ap-south-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:billing:us-east-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:billing:eu-west-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-3310:billing:ap-south-1",
+    "topic": "support:ERR-3310",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Session token rejected after rotation (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-3310 indicates a session token failed validation following a signing key rotation. Verify the key identifier in the token header resolves to an active key, confirm the rotation completed across all replicas, and invalidate cached public keys. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:checkout:us-east-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-2907:checkout:eu-west-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:checkout:ap-south-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:payments:us-east-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:payments:eu-west-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:payments:ap-south-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:search:us-east-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:search:eu-west-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:search:ap-south-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:identity:us-east-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:identity:eu-west-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:identity:ap-south-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:billing:us-east-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:billing:eu-west-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-2907:billing:ap-south-1",
+    "topic": "support:ERR-2907",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Queue consumer lag exceeds threshold (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-2907 fires when consumer lag on the ingestion queue exceeds the alerting threshold. Check consumer health, confirm partition assignment is balanced, and scale the consumer group before the retention window expires. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:checkout:us-east-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-6142:checkout:eu-west-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:checkout:ap-south-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:payments:us-east-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:payments:eu-west-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:payments:ap-south-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:search:us-east-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:search:eu-west-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:search:ap-south-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:identity:us-east-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:identity:eu-west-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:identity:ap-south-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:billing:us-east-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:billing:eu-west-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-6142:billing:ap-south-1",
+    "topic": "support:ERR-6142",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Database connection pool exhausted (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-6142 is raised when every connection in the pool is checked out. Identify long-running transactions holding connections, confirm the pool ceiling matches the database maximum, and terminate idle sessions older than the configured timeout. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:checkout:us-east-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (checkout, us-east-1)",
+    "text": "Service: checkout. Region: us-east-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the checkout service in us-east-1.",
+    "canonical": true
+  },
+  {
+    "id": "support:ERR-7788:checkout:eu-west-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (checkout, eu-west-1)",
+    "text": "Service: checkout. Region: eu-west-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the checkout service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:checkout:ap-south-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (checkout, ap-south-1)",
+    "text": "Service: checkout. Region: ap-south-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the checkout service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:payments:us-east-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (payments, us-east-1)",
+    "text": "Service: payments. Region: us-east-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the payments service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:payments:eu-west-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (payments, eu-west-1)",
+    "text": "Service: payments. Region: eu-west-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the payments service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:payments:ap-south-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (payments, ap-south-1)",
+    "text": "Service: payments. Region: ap-south-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the payments service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:search:us-east-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (search, us-east-1)",
+    "text": "Service: search. Region: us-east-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the search service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:search:eu-west-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (search, eu-west-1)",
+    "text": "Service: search. Region: eu-west-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the search service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:search:ap-south-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (search, ap-south-1)",
+    "text": "Service: search. Region: ap-south-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the search service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:identity:us-east-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (identity, us-east-1)",
+    "text": "Service: identity. Region: us-east-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the identity service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:identity:eu-west-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (identity, eu-west-1)",
+    "text": "Service: identity. Region: eu-west-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the identity service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:identity:ap-south-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (identity, ap-south-1)",
+    "text": "Service: identity. Region: ap-south-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the identity service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:billing:us-east-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (billing, us-east-1)",
+    "text": "Service: billing. Region: us-east-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the billing service in us-east-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:billing:eu-west-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (billing, eu-west-1)",
+    "text": "Service: billing. Region: eu-west-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the billing service in eu-west-1.",
+    "canonical": false
+  },
+  {
+    "id": "support:ERR-7788:billing:ap-south-1",
+    "topic": "support:ERR-7788",
+    "department": "support",
+    "doc_type": "runbook",
+    "title": "Certificate expiry blocking outbound calls (billing, ap-south-1)",
+    "text": "Service: billing. Region: ap-south-1. Error ERR-7788 appears when an outbound TLS handshake fails because the client certificate has expired. Renew the certificate, redistribute it to every replica, and confirm the expiry monitor covers the renewed certificate. This runbook applies to the billing service in ap-south-1.",
+    "canonical": false
+  },
+  {
+    "id": "finance:expense-travel",
+    "topic": "finance:expense-travel",
+    "department": "finance",
+    "doc_type": "policy",
+    "title": "Travel expense reimbursement policy",
+    "text": "Travel expenses are reimbursed when submitted within sixty days of the trip end date with an itemised receipt. Airfare above the economy fare cap requires prior written approval from a cost centre owner. Per diem rates follow the published schedule for the destination city.",
+    "canonical": true
+  },
+  {
+    "id": "finance:net-payment-terms",
+    "topic": "finance:net-payment-terms",
+    "department": "finance",
+    "doc_type": "policy",
+    "title": "Standard net payment terms for enterprise invoices",
+    "text": "Enterprise invoices carry net sixty payment terms from the invoice issue date. Early settlement within ten days earns a two percent discount. Late balances accrue interest at the statutory rate and are referred to collections after ninety days outstanding.",
+    "canonical": true
+  },
+  {
+    "id": "finance:procurement-threshold",
+    "topic": "finance:procurement-threshold",
+    "department": "finance",
+    "doc_type": "policy",
+    "title": "Procurement approval thresholds",
+    "text": "Purchases below ten thousand require a single department approval. Purchases between ten and one hundred thousand require finance review and a competitive quote. Anything above one hundred thousand requires a formal tender and executive sign-off.",
+    "canonical": true
+  },
+  {
+    "id": "finance:revenue-recognition",
+    "topic": "finance:revenue-recognition",
+    "department": "finance",
+    "doc_type": "policy",
+    "title": "Revenue recognition for multi-year subscriptions",
+    "text": "Subscription revenue is recognised rateably across the committed service period rather than on invoice. Multi-year contracts are unbundled into performance obligations, and any implementation fee is recognised on completion of the milestone it funds.",
+    "canonical": true
+  },
+  {
+    "id": "finance:chargeback-handling",
+    "topic": "finance:chargeback-handling",
+    "department": "finance",
+    "doc_type": "policy",
+    "title": "Chargeback and dispute handling",
+    "text": "A chargeback is raised when a cardholder disputes a settled transaction. Compelling evidence must be assembled within the issuer response window, and repeated disputes on one merchant account trigger a monitoring programme with additional fees.",
+    "canonical": true
+  },
+  {
+    "id": "legal:7.3",
+    "topic": "legal:7.3",
+    "department": "legal",
+    "doc_type": "contract_clause",
+    "title": "Clause 7.3 - Limitation of liability",
+    "text": "Clause 7.3 limits aggregate liability to the fees paid in the twelve months preceding the claim. Neither party excludes liability for death, personal injury, or fraud. Indirect and consequential losses are excluded to the extent permitted by law.",
+    "canonical": true
+  },
+  {
+    "id": "legal:12.1",
+    "topic": "legal:12.1",
+    "department": "legal",
+    "doc_type": "contract_clause",
+    "title": "Clause 12.1 - Data processing and sub-processors",
+    "text": "Clause 12.1 requires the processor to maintain a current register of sub-processors and to give thirty days notice before appointing a new one. The controller may object on reasonable data protection grounds within the notice period.",
+    "canonical": true
+  },
+  {
+    "id": "legal:4.8",
+    "topic": "legal:4.8",
+    "department": "legal",
+    "doc_type": "contract_clause",
+    "title": "Clause 4.8 - Contract term and renewal",
+    "text": "Clause 4.8 sets an initial term of twenty-four months with automatic renewal for successive twelve month periods unless either party serves notice ninety days before the renewal date.",
+    "canonical": true
+  },
+  {
+    "id": "legal:9.2",
+    "topic": "legal:9.2",
+    "department": "legal",
+    "doc_type": "contract_clause",
+    "title": "Clause 9.2 - Record retention schedule",
+    "text": "Clause 9.2 requires transaction records to be retained for seven years and personal data to be deleted once the retention basis lapses. Deletion must be evidenced in the audit register.",
+    "canonical": true
+  },
+  {
+    "id": "product:POST /v2/invoices",
+    "topic": "product:POST /v2/invoices",
+    "department": "product",
+    "doc_type": "api_reference",
+    "title": "Create an invoice",
+    "text": "POST /v2/invoices creates a draft invoice. The request body requires a customer identifier and at least one line item. The endpoint is idempotent when an Idempotency-Key header is supplied, and returns 409 when a duplicate key is replayed with a different body.",
+    "canonical": true
+  },
+  {
+    "id": "product:GET /v2/subscriptions",
+    "topic": "product:GET /v2/subscriptions",
+    "department": "product",
+    "doc_type": "api_reference",
+    "title": "List subscriptions",
+    "text": "GET /v2/subscriptions returns a paginated list of subscriptions. Use the cursor parameter to page through results and the status filter to restrict to active or cancelled records. Page size defaults to fifty.",
+    "canonical": true
+  },
+  {
+    "id": "product:retry.max_attempts",
+    "topic": "product:retry.max_attempts",
+    "department": "product",
+    "doc_type": "api_reference",
+    "title": "Retry configuration reference",
+    "text": "The retry.max_attempts setting bounds how many times a failed webhook delivery is retried before it is parked. Backoff is exponential with jitter, controlled by retry.base_delay_ms. Parked deliveries can be replayed manually.",
+    "canonical": true
+  },
+  {
+    "id": "product:index.refresh_interval",
+    "topic": "product:index.refresh_interval",
+    "department": "product",
+    "doc_type": "api_reference",
+    "title": "Search index refresh interval",
+    "text": "The index.refresh_interval setting controls how often newly written documents become visible to queries. Lowering it improves freshness at the cost of indexing throughput and segment churn.",
+    "canonical": true
+  },
+  {
+    "id": "support:overview:checkout",
+    "topic": "support:overview:checkout",
+    "department": "support",
+    "doc_type": "overview",
+    "title": "checkout service overview",
+    "text": "The checkout service handles its domain workload and publishes health, readiness and metrics endpoints. Ownership sits with the checkout team. Escalation follows the standard on-call rotation.",
+    "canonical": true
+  },
+  {
+    "id": "support:overview:payments",
+    "topic": "support:overview:payments",
+    "department": "support",
+    "doc_type": "overview",
+    "title": "payments service overview",
+    "text": "The payments service handles its domain workload and publishes health, readiness and metrics endpoints. Ownership sits with the payments team. Escalation follows the standard on-call rotation.",
+    "canonical": true
+  },
+  {
+    "id": "support:overview:search",
+    "topic": "support:overview:search",
+    "department": "support",
+    "doc_type": "overview",
+    "title": "search service overview",
+    "text": "The search service handles its domain workload and publishes health, readiness and metrics endpoints. Ownership sits with the search team. Escalation follows the standard on-call rotation.",
+    "canonical": true
+  },
+  {
+    "id": "support:overview:identity",
+    "topic": "support:overview:identity",
+    "department": "support",
+    "doc_type": "overview",
+    "title": "identity service overview",
+    "text": "The identity service handles its domain workload and publishes health, readiness and metrics endpoints. Ownership sits with the identity team. Escalation follows the standard on-call rotation.",
+    "canonical": true
+  },
+  {
+    "id": "support:overview:billing",
+    "topic": "support:overview:billing",
+    "department": "support",
+    "doc_type": "overview",
+    "title": "billing service overview",
+    "text": "The billing service handles its domain workload and publishes health, readiness and metrics endpoints. Ownership sits with the billing team. Escalation follows the standard on-call rotation.",
+    "canonical": true
+  }
+]

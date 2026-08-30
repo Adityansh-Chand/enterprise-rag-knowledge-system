@@ -1,4 +1,14 @@
 {
   "status": "running",
-  "documents": 2
+  "documents": 108,
+  "retriever": "bm25",
+  "top_k": 5,
+  "reranker_fitted": true,
+  "llm": {
+    "provider": "none",
+    "enabled": false,
+    "model": null,
+    "note": "all reported metrics come from the non-LLM extractive path"
+  },
+  "corpus": "synthetic (datasets/generate_corpus.py) - not a benchmark"
 }

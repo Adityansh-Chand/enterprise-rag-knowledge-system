@@ -1,0 +1,25 @@
+{
+  "note": "Semantic fusion weight selected on a dev half of queries and applied once to a disjoint report half. Never tuned on the queries used to report.",
+  "dataset": "nfcorpus",
+  "semantic_weight": 1.0,
+  "lexical_weight": 0.0,
+  "dev_sweep": {
+    "0.0": 0.2887,
+    "0.1": 0.3051,
+    "0.2": 0.313,
+    "0.3": 0.3226,
+    "0.4": 0.3254,
+    "0.5": 0.351,
+    "0.6": 0.3666,
+    "0.7": 0.3729,
+    "0.8": 0.3776,
+    "0.9": 0.386,
+    "1.0": 0.39
+  },
+  "report_half": {
+    "bm25": 0.2775,
+    "dense": 0.3553,
+    "hybrid_unweighted": 0.3335,
+    "hybrid_tuned": 0.3553
+  }
+}

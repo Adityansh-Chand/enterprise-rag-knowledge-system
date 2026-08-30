@@ -1,6 +1,6 @@
 {
-  "uptime_seconds": 12.345,
+  "uptime_seconds": 25.251,
   "counters": {
-    "rag_queries_total": 1
+    "rag_queries_total": 2
   }
 }
