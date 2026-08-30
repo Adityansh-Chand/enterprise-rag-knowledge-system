@@ -26,6 +26,15 @@ class QueryRequest(BaseModel):
     query: str = Field(..., min_length=1, max_length=2000)
 
 
+class DocumentRequest(BaseModel):
+    """A passage to add to the searchable corpus."""
+
+    doc_id: str = Field(..., min_length=1, max_length=200)
+    text: str = Field(..., min_length=1, max_length=20000)
+    title: str = Field("", max_length=500)
+    source: str = Field("api", max_length=100)
+
+
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):
     metrics.increment("http_errors_total")
@@ -96,6 +105,36 @@ def metrics_endpoint():
 @app.get("/events", dependencies=[Depends(require_api_key)])
 def events(limit: int = 20):
     return {"events": recent_events(limit=min(limit, 100))}
+
+
+@app.post("/documents", dependencies=[Depends(require_api_key)])
+def ingest_document(request: DocumentRequest):
+    """Add a passage to the corpus and rebuild the index.
+
+    This is what lets other services contribute knowledge -- the meeting service
+    indexes the decisions and action items it extracts, so "what did we decide
+    about the migration plan" becomes answerable from the same endpoint that
+    answers policy questions.
+
+    Rebuilding the whole index per document is honest about what this is: a
+    demonstration of the integration, not an incremental-indexing implementation.
+    Fine for hundreds of documents, wrong for millions.
+    """
+    metrics.increment("documents_ingested_total")
+    chunks = pipeline.ingest_document(
+        request.text, title=request.title, doc_id=request.doc_id
+    )
+    pipeline.build_index()
+    save_event(
+        "rag_ingest",
+        {"doc_id": request.doc_id, "source": request.source, "chunks": chunks},
+    )
+    return {
+        "doc_id": request.doc_id,
+        "chunks_added": chunks,
+        "documents_indexed": pipeline.document_count,
+        "source": request.source,
+    }
 
 
 @app.get("/query")

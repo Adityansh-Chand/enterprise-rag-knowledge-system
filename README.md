@@ -264,6 +264,26 @@ python training/generate_corpus.py --check
 python training/train_reranker.py --verify --retriever bm25
 ```
 
+## Cross-service integration (optional)
+
+This service accepts documents so other services can contribute knowledge:
+
+```
+POST /documents   {"doc_id": ..., "title": ..., "text": ..., "source": ...}
+```
+
+The meeting intelligence service uses it to index decisions and action items, so
+meeting outcomes become searchable alongside the policy corpus. The customer
+operations service queries `/query` for a grounding passage when replying to a
+customer.
+
+Ingestion rebuilds the whole index per document. That is honest about what it is:
+a demonstration of the integration, fine for hundreds of documents and wrong for
+millions. Incremental indexing is not implemented.
+
+Retrieval quality, the bench, and the committed metrics are unaffected — this adds
+a write path, it does not change how ranking works.
+
 ## Reviewer Status
 
 **What is real and independently checkable:**

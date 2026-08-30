@@ -55,6 +55,10 @@ class RAGPipeline:
         self._indexed = False
         return len(chunks)
 
+    def has_document(self, doc_id):
+        return any(existing.startswith(f"{doc_id}#") or existing == doc_id
+                   for existing in self._doc_ids)
+
     def build_index(self):
         if not self._chunks:
             raise RuntimeError("ingest at least one document before indexing")
