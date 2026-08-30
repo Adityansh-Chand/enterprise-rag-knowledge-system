@@ -29,3 +29,6 @@ data/
 .idea/
 .vscode/
 
+
+# local caches (datasets, embeddings) -- never committed
+.cache/

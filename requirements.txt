@@ -1,5 +1,19 @@
 fastapi
 uvicorn
-numpy
 pytest
 httpx
+
+# Retrieval
+numpy
+scikit-learn==1.8.0
+rank-bm25
+
+# Dense retrieval. torch is the heavy dependency here; install the CPU build
+# explicitly (see .github/workflows/ci.yml) or pip resolves the CUDA wheel,
+# which is roughly 2GB and unnecessary for this workload:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch
+sentence-transformers
+
+# Only needed to download the BEIR benchmark subsets (evaluation/harness.py --beir).
+datasets

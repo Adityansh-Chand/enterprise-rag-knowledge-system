@@ -22,7 +22,7 @@ def main():
     checks = [
         request("/health"),
         request("/metrics"),
-        request("/query", method="POST", payload={"query": "remote work policy"}),
+        request("/query", method="POST", payload={"query": "ERR-4021 remediation steps"}),
     ]
 
     for status, body in checks:
