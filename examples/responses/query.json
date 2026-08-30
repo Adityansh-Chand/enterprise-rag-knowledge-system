@@ -1,12 +1,42 @@
 {
   "response": {
-    "answer": "Based on the knowledge base: Remote work is allowed with manager approval.",
-    "confidence": 0.35,
+    "answer": "Error ERR-4021 is emitted when the upstream processor declines an authorization request. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Error ERR-4021 is emitted when the upstream processor declines an authorization request.",
+    "mode": "extractive",
+    "groundedness": 1.0,
+    "retrieval_score": 1.6497,
     "sources": [
       {
-        "text": "Remote work is allowed with manager approval.",
-        "score": 0.35
+        "doc_id": "support:ERR-4021:payments:eu-west-1",
+        "title": "Payment authorization declined by upstream processor (payments, eu-west-1)",
+        "text": "Payment authorization declined by upstream processor (payments, eu-west-1). Service: payments. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the payments service in eu-west-1.",
+        "score": 1.6497
+      },
+      {
+        "doc_id": "support:ERR-4021:payments:ap-south-1",
+        "title": "Payment authorization declined by upstream processor (payments, ap-south-1)",
+        "text": "Payment authorization declined by upstream processor (payments, ap-south-1). Service: payments. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the payments service in ap-south-1.",
+        "score": 1.6497
+      },
+      {
+        "doc_id": "support:ERR-4021:search:us-east-1",
+        "title": "Payment authorization declined by upstream processor (search, us-east-1)",
+        "text": "Payment authorization declined by upstream processor (search, us-east-1). Service: search. Region: us-east-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the search service in us-east-1.",
+        "score": 1.6497
+      },
+      {
+        "doc_id": "support:ERR-4021:checkout:eu-west-1",
+        "title": "Payment authorization declined by upstream processor (checkout, eu-west-1)",
+        "text": "Payment authorization declined by upstream processor (checkout, eu-west-1). Service: checkout. Region: eu-west-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the checkout service in eu-west-1.",
+        "score": 1.6497
+      },
+      {
+        "doc_id": "support:ERR-4021:identity:ap-south-1",
+        "title": "Payment authorization declined by upstream processor (identity, ap-south-1)",
+        "text": "Payment authorization declined by upstream processor (identity, ap-south-1). Service: identity. Region: ap-south-1. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Inspect the processor response envelope for a decline reason, confirm the merchant descriptor is registered, and retry the authorization once. Escalate to the processor liaison if the decline reason is issuer_unavailable. This runbook applies to the identity service in ap-south-1.",
+        "score": 1.6497
       }
-    ]
+    ],
+    "retriever": "bm25",
+    "reranked": true
   }
 }
