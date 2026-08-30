@@ -79,8 +79,9 @@ provably cannot match. A test enforces that guarantee.
 expected. Equal-weight RRF lets BM25's near-zero mismatch performance drag the fusion
 down from 0.6154 to 0.3752, and mismatch queries are a third of the set. **Naive rank
 fusion can underperform its own best component when the components are very unequal.**
-Weighted fusion would likely fix it; that is not done here, and the unweighted result
-stands as measured.
+This is not a quirk of the synthetic corpus — it **replicates on BEIR/NFCorpus**
+below (0.3423 vs 0.3727). Weighted fusion is the obvious fix and is not implemented
+here; the unweighted result stands as measured.
 
 **LSA sits slightly *below* BM25 overall** (0.6544 vs 0.6820). On a 108-document corpus
 the latent space is too thin to learn much synonymy. It does win the acronym category
@@ -97,41 +98,49 @@ Source: the BeIR collection on the HuggingFace hub (`cc-by-sa-4.0`).
 
 **NFCorpus** — 3,633 medical documents, 323 test queries with human qrels:
 
-| Retriever | nDCG@10 | Recall@10 | MRR@10 |
-|---|---|---|---|
-| bm25 | **0.2831** | 0.1326 | 0.4881 |
-| lsa | 0.2613 | 0.1277 | 0.4244 |
+| Retriever | nDCG@10 | Recall@10 | MRR@10 | index (s) | query (ms) |
+|---|---|---|---|---|---|
+| bm25 | 0.2831 | 0.1326 | 0.4881 | 1.8 | 10 |
+| lsa | 0.2613 | 0.1277 | 0.4244 | 5.2 | 20 |
+| **dense** | **0.3727** | **0.1784** | **0.5662** | 2475 | 59 |
+| hybrid (bm25+dense) | 0.3423 | 0.1637 | 0.5627 | 0.8 | 96 |
 
-LSA again lands slightly below BM25, consistent with the synthetic corpus result.
-NFCorpus is a hard dataset — queries are lay-language health questions against
-technical abstracts — and these figures are in the range this benchmark produces.
+**The synthetic corpus's two main findings replicate on real, human-judged data:**
 
-**Two caveats, stated rather than glossed:**
+1. **Dense beats BM25** — 0.3727 vs 0.2831, a 32% relative improvement. NFCorpus
+   queries are lay-language health questions against technical abstracts, which is
+   vocabulary mismatch in its natural form, and it is exactly where the synthetic
+   bench predicted dense would win.
+2. **Hybrid is again worse than dense alone** — 0.3423 vs 0.3727. The same effect
+   as on the synthetic corpus, now on a benchmark nobody here constructed. That
+   makes it a much more credible observation than a single synthetic result:
+   equal-weight reciprocal rank fusion genuinely can underperform its stronger
+   component when the two are unequal. Weighted fusion is the obvious fix and is
+   **not** implemented here.
 
-1. **This BM25 is not a tuned Lucene baseline.** It is `rank_bm25` with default
-   `k1`/`b`, no stemming, and no domain stopword handling. Published BM25 numbers
-   for NFCorpus generally come from Anserini/Lucene with proper analysis and sit
-   higher. The comparison *between the retrievers here* is apples-to-apples,
-   because they share the same tokenizer and the same harness; the comparison to
-   published leaderboards is not.
-2. **Dense and hybrid results on BEIR are not yet included.** Encoding NFCorpus
-   with `bge-base` on CPU takes far longer than the synthetic corpus did — these
-   are long medical abstracts, and this machine has no GPU. The run is a single
-   command and the embeddings cache once computed:
+LSA again lands slightly below BM25, consistent across both corpora.
 
-   ```bash
-   python scripts/prefetch_beir.py --dataset nfcorpus
-   python evaluation/harness.py --beir nfcorpus
-   ```
+Note the cost column: indexing with `bge-base` took **2,475 seconds** on CPU for
+3,633 documents (~1.5 docs/s — these are long abstracts). Embeddings are cached
+after the first run. BM25 indexed the same corpus in 1.8 seconds and answers in
+10ms. Whether the ~9-point nDCG gain is worth ~1,400x the indexing cost is a real
+engineering decision, not an obvious one.
 
-   Given how decisively dense beat BM25 on vocabulary-mismatch queries in the
-   synthetic bench, it would be reasonable to expect it to lead here too — which
-   is exactly why that expectation is **not** written into the results table
-   until it has been measured.
+**One caveat, stated rather than glossed:** this BM25 is `rank_bm25` with default
+`k1`/`b`, no stemming and no domain stopword handling. Published NFCorpus BM25
+numbers generally come from Anserini/Lucene with proper analysis and sit higher.
+The comparison *between the retrievers here* is apples-to-apples — same tokenizer,
+same harness, same qrels — but the comparison to published leaderboards is not.
 
-`scifact` and `fiqa` are configured in `rag/beir_data.py` and run the same way.
-FiQA (57,638 documents) is the dataset where dense retrieval is known to separate
-most sharply from lexical; it was not run here for the same CPU reason.
+`scifact` and `fiqa` are configured in `rag/beir_data.py` and run the same way:
+
+```bash
+python scripts/prefetch_beir.py --dataset scifact
+python evaluation/harness.py --beir scifact
+```
+
+FiQA (57,638 documents) was not run here: at the measured CPU encoding rate it is
+roughly a ten-hour job on this machine.
 
 ## Reranking — a measured null result
 
@@ -221,7 +230,9 @@ python training/train_reranker.py --verify --retriever bm25
 **What is real and independently checkable:**
 
 - Four genuinely different retrievers behind one interface, compared by one harness.
-- **Real BEIR benchmarks** with human relevance judgments, not only synthetic data.
+- **Real BEIR benchmarks** with human relevance judgments, not only synthetic data —
+  and the synthetic corpus's main findings replicate there.
+- Raw numbers for both tracks in [`evaluation/results.json`](evaluation/results.json).
 - Correct IR metrics — nDCG@k, Recall@k, MRR — replacing a `precision_at_k` that
   ignored `k` and substring-matched a joined string.
 - A synthetic corpus engineered so the methods disagree, with the
@@ -237,6 +248,10 @@ python training/train_reranker.py --verify --retriever bm25
   per-query-type breakdown.
 - No cross-encoder reranker. A pretrained one would likely beat the fitted model; it is
   not implemented here, so no claim is made about it.
+- No weighted rank fusion, which is the obvious response to hybrid underperforming
+  dense on both corpora.
+- Only NFCorpus was run from BEIR. `scifact` and `fiqa` are configured and one command
+  away; FiQA is roughly a ten-hour encode on this CPU-only machine.
 - Answers are extractive. There is no abstractive generation without an LLM configured,
   and no reported metric uses the LLM path.
 - No query rewriting, no HyDE, no multi-hop retrieval, no chunk-boundary tuning.
