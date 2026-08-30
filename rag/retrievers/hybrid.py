@@ -8,6 +8,14 @@ RRF combines *ranks*, not scores, which matters because BM25 scores are unbounde
 term-weight sums while cosine similarities sit in [-1, 1]. Averaging those
 directly would let whichever retriever happens to have a larger numeric range
 dominate for reasons unrelated to relevance.
+
+**Weighting matters more than the original unweighted version assumed.** With
+equal weights this retriever scored *below* its own dense component on both the
+synthetic corpus and BEIR/NFCorpus: when one component is much stronger, giving
+the weaker one equal say drags the fusion down. `lexical_weight` and
+`semantic_weight` exist so that balance can be set from data rather than assumed
+-- see `training/tune_fusion.py`, which selects them on a held-out *dev* split of
+queries and never on the queries used to report.
 """
 from typing import Sequence
 
@@ -20,11 +28,27 @@ RRF_K = 60
 class HybridRetriever:
     name = "hybrid"
 
-    def __init__(self, lexical: Retriever, semantic: Retriever, rrf_k: int = RRF_K):
+    def __init__(
+        self,
+        lexical: Retriever,
+        semantic: Retriever,
+        rrf_k: int = RRF_K,
+        lexical_weight: float = 1.0,
+        semantic_weight: float = 1.0,
+    ):
         self.lexical = lexical
         self.semantic = semantic
         self.rrf_k = rrf_k
-        self.name = f"hybrid({lexical.name}+{semantic.name})"
+        self.lexical_weight = lexical_weight
+        self.semantic_weight = semantic_weight
+
+        if lexical_weight == semantic_weight:
+            self.name = f"hybrid({lexical.name}+{semantic.name})"
+        else:
+            self.name = (
+                f"hybrid_w({lexical.name}:{lexical_weight:g}"
+                f"+{semantic.name}:{semantic_weight:g})"
+            )
 
     def index(self, documents: Sequence[str]) -> None:
         self.lexical.index(documents)
@@ -35,9 +59,14 @@ class HybridRetriever:
         # retriever and 2nd by the other should still surface.
         depth = max(k * 4, 50)
         fused: dict[int, float] = {}
-        for retriever in (self.lexical, self.semantic):
+        for retriever, weight in (
+            (self.lexical, self.lexical_weight),
+            (self.semantic, self.semantic_weight),
+        ):
+            if weight == 0.0:
+                continue
             for rank, (index, _) in enumerate(retriever.search(query, depth)):
-                fused[index] = fused.get(index, 0.0) + 1.0 / (self.rrf_k + rank + 1)
+                fused[index] = fused.get(index, 0.0) + weight / (self.rrf_k + rank + 1)
 
         ranked = sorted(fused.items(), key=lambda item: item[1], reverse=True)
         return [(int(i), float(s)) for i, s in ranked[:k]]

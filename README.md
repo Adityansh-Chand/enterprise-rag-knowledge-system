@@ -80,8 +80,8 @@ expected. Equal-weight RRF lets BM25's near-zero mismatch performance drag the f
 down from 0.6154 to 0.3752, and mismatch queries are a third of the set. **Naive rank
 fusion can underperform its own best component when the components are very unequal.**
 This is not a quirk of the synthetic corpus — it **replicates on BEIR/NFCorpus**
-below (0.3423 vs 0.3727). Weighted fusion is the obvious fix and is not implemented
-here; the unweighted result stands as measured.
+(0.3423 vs 0.3727). See *Weighted fusion* below for what happened when the weight was
+allowed to come from data.
 
 **LSA sits slightly *below* BM25 overall** (0.6544 vs 0.6820). On a 108-document corpus
 the latent space is too thin to learn much synonymy. It does win the acronym category
@@ -115,8 +115,8 @@ Source: the BeIR collection on the HuggingFace hub (`cc-by-sa-4.0`).
    as on the synthetic corpus, now on a benchmark nobody here constructed. That
    makes it a much more credible observation than a single synthetic result:
    equal-weight reciprocal rank fusion genuinely can underperform its stronger
-   component when the two are unequal. Weighted fusion is the obvious fix and is
-   **not** implemented here.
+   component when the two are unequal. Weighting it from data fixes the
+   underperformance but gains nothing beyond dense alone — see *Weighted fusion*.
 
 LSA again lands slightly below BM25, consistent across both corpora.
 
@@ -141,6 +141,45 @@ python evaluation/harness.py --beir scifact
 
 FiQA (57,638 documents) was not run here: at the measured CPU encoding rate it is
 roughly a ten-hour job on this machine.
+
+## Weighted fusion — the weight the data picks is "don't fuse"
+
+Unweighted fusion losing to its own dense component is a fixable-looking problem, so
+`training/tune_fusion.py` sweeps the lexical/semantic balance. The selection is kept
+honest: queries are split into **dev** and **report** halves, the sweep only ever sees
+dev, and the chosen weight is applied once to the report half.
+
+Both corpora agree, and both pick the endpoint:
+
+| Semantic weight chosen on dev | synthetic | BEIR/NFCorpus |
+|---|---|---|
+| | **1.0** | **1.0** |
+
+Scored on the report half, which was never used for selection:
+
+| | synthetic | BEIR/NFCorpus |
+|---|---|---|
+| bm25 alone | 0.6996 | 0.2775 |
+| dense alone | 0.9390 | 0.3553 |
+| hybrid, unweighted | 0.8551 | 0.3335 |
+| hybrid, **tuned** | **0.9390** | **0.3553** |
+
+**Weighting fixes the underperformance and gains nothing beyond it.** Tuned fusion beats
+unweighted by +0.0839 (synthetic) and +0.0218 (NFCorpus), and then ties dense *exactly* —
+because a semantic weight of 1.0 means a lexical weight of 0.0. The sweep's answer is
+that BM25 should not be in the mix at all.
+
+So the original finding was not a fusion bug. Fusion was including a component that,
+averaged over these query sets, contributes nothing on top of dense.
+
+**But averaged is doing work in that sentence.** BM25 scores **1.0000** on
+`exact_identifier` queries against dense's 0.9219. It is genuinely better there and
+genuinely useless elsewhere, and a single global weight cannot express that. The
+promising direction is not a better weight — it is **routing per query**, sending
+identifier-shaped queries to the lexical retriever and everything else to dense. That is
+not implemented here, and no claim is made about it.
+
+Raw sweep and both halves: [`models/artifacts/fusion_weights.json`](models/artifacts/fusion_weights.json).
 
 ## Reranking — a measured null result
 
@@ -248,8 +287,9 @@ python training/train_reranker.py --verify --retriever bm25
   per-query-type breakdown.
 - No cross-encoder reranker. A pretrained one would likely beat the fitted model; it is
   not implemented here, so no claim is made about it.
-- No weighted rank fusion, which is the obvious response to hybrid underperforming
-  dense on both corpora.
+- No per-query routing between lexical and dense retrieval, which is what the fusion
+  result actually points at. A single global weight cannot exploit BM25 being better on
+  identifier queries and worse everywhere else.
 - Only NFCorpus was run from BEIR. `scifact` and `fiqa` are configured and one command
   away; FiQA is roughly a ten-hour encode on this CPU-only machine.
 - Answers are extractive. There is no abstractive generation without an LLM configured,
