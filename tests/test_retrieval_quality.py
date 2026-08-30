@@ -93,3 +93,61 @@ def test_lsa_indexes_and_ranks(corpus_and_queries):
     corpus, queries = corpus_and_queries
     run, qrels = _run(LSARetriever(), corpus, queries)
     assert evaluate_run(run, qrels)["ndcg@10"] > 0.4
+
+
+# --- weighted fusion ----------------------------------------------------------
+
+def test_fusion_weights_reduce_to_the_single_component_at_the_endpoints():
+    """A semantic weight of 1.0 must be exactly dense; 0.0 exactly lexical.
+
+    The tuned weight selected on both corpora is 1.0, so this equivalence is what
+    makes "tuned fusion ties dense" a fact about the data rather than a bug.
+    """
+    from rag.retrievers import BM25Retriever, HybridRetriever, LSARetriever
+
+    documents = [
+        "Error ERR-4021 means the payment gateway declined the authorization.",
+        "Refunds are processed within five business days of approval.",
+        "Elevated p99 latency was observed on the checkout service.",
+    ]
+    lexical, semantic = BM25Retriever(), LSARetriever(n_components=2)
+
+    semantic_only = HybridRetriever(lexical, semantic, lexical_weight=0.0, semantic_weight=1.0)
+    lexical_only = HybridRetriever(lexical, semantic, lexical_weight=1.0, semantic_weight=0.0)
+    for retriever in (semantic_only, lexical_only):
+        retriever.index(documents)
+    semantic.index(documents)
+    lexical.index(documents)
+
+    query = "why did the card payment fail"
+    assert [i for i, _ in semantic_only.search(query, 3)] == [
+        i for i, _ in semantic.search(query, 3)
+    ]
+    assert [i for i, _ in lexical_only.search(query, 3)] == [
+        i for i, _ in lexical.search(query, 3)
+    ]
+
+
+def test_weighted_and_unweighted_fusion_are_named_distinctly():
+    """Results tables must never conflate a tuned run with an unweighted one."""
+    from rag.retrievers import BM25Retriever, HybridRetriever, LSARetriever
+
+    lexical, semantic = BM25Retriever(), LSARetriever(n_components=2)
+    assert HybridRetriever(lexical, semantic).name == "hybrid(bm25+lsa)"
+    assert "hybrid_w" in HybridRetriever(
+        lexical, semantic, lexical_weight=0.2, semantic_weight=0.8
+    ).name
+
+
+def test_committed_fusion_weights_were_selected_on_a_dev_split():
+    """The selection must not have touched the queries used to report."""
+    import json
+
+    path = ROOT / "models" / "artifacts" / "fusion_weights.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert "never tuned on the queries used to report" in payload["note"].lower()
+    assert 0.0 <= payload["semantic_weight"] <= 1.0
+    assert payload["lexical_weight"] == pytest.approx(1.0 - payload["semantic_weight"])
+    # Tuning must at least not have made fusion worse than the unweighted baseline.
+    half = payload["report_half"]
+    assert half["hybrid_tuned"] >= half["hybrid_unweighted"]
