@@ -223,6 +223,33 @@ well the query matched, not how likely the answer is correct.
 curl "http://localhost:8000/query?q=ERR-4021%20remediation%20steps"
 ```
 
+### Drift detection
+
+A fitted model degrades quietly: nothing throws, the numbers simply stop
+describing the world. This service watches its **top retrieval score** — how well the corpus answers the questions arriving — and reports
+a status rather than raising an alarm.
+
+```bash
+curl localhost:8000/v1/drift
+```
+
+numeric PSI against the score distribution the evaluation query set produces on this corpus. Population Stability Index, read against the conventional thresholds:
+below 0.10 stable, below 0.25 a moderate shift worth looking at, at or above 0.25
+a significant one.
+
+Three states exist besides a verdict, and each is reported rather than guessed:
+`insufficient_data` below 50 observations, `no_reference` when training left none,
+and a count of classes the reference never saw.
+
+**Classifier confidence was tried first and rejected.** On a template-generated
+corpus it is bimodal — near 1.0 on phrasings the model effectively memorised, much
+lower on anything else — so PSI swung on ordinary traffic and reported drift that
+was not there. A monitor that cries wolf teaches people to ignore it. The reasoning
+is recorded in `monitoring/drift.py`.
+
+Tests assert the monitor is **quiet on in-distribution data and loud on shifted
+data**. One direction alone would not be evidence of anything.
+
 ### Distributed tracing
 
 Every event is stored with the request id that produced it, and `/v1/events`
