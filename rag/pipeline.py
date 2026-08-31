@@ -65,9 +65,16 @@ class RAGPipeline:
         self.retriever.index(self._chunks)
         self._indexed = True
 
-    def query(self, text):
+    def retrieve(self, text):
+        """The final ranked context an answer would be built from.
+
+        Separate from `query` so evaluation and threshold calibration can look
+        at exactly the chunks the generator sees, without reaching into private
+        state or re-implementing the retrieve-then-rerank order and drifting
+        from it.
+        """
         if not self._chunks:
-            return build_response(text, [])
+            return []
         if not self._indexed:
             self.build_index()
 
@@ -76,9 +83,13 @@ class RAGPipeline:
             (score, self._chunks[i], self._titles[i], self._doc_ids[i])
             for i, score in hits
         ]
-        reranked = rerank(text, candidates)[: self.top_k]
+        return rerank(text, candidates)[: self.top_k]
 
-        response = build_response(text, reranked)
+    def query(self, text):
+        if not self._chunks:
+            return build_response(text, [], retriever=self.retriever_name)
+        reranked = self.retrieve(text)
+        response = build_response(text, reranked, retriever=self.retriever_name)
         response["retriever"] = self.retriever.name
         response["reranked"] = is_fitted()
         return response
