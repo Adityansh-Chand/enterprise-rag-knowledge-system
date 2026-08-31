@@ -18,7 +18,7 @@ class RAGPipeline:
         self.top_k = top_k
 
         kwargs = {}
-        if self.retriever_name in ("dense", "hybrid"):
+        if self.retriever_name in ("dense", "hybrid", "router"):
             kwargs["model_name"] = self.model_name
             if cache_path is not None:
                 kwargs["cache_path"] = cache_path
