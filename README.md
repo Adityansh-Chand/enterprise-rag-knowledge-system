@@ -307,12 +307,112 @@ path: paying a second per query for +0.0011 would be a worse decision than the
 null result it was brought in to test. Deciding *not* to ship a component after
 measuring it is the point of measuring it.
 
-## Answers and groundedness
+## Answer quality — groundedness is not correctness
 
-`rag/generator.py` selects the sentences that actually respond to the query, cites the
-chunks they came from, and reports **groundedness**: the share of the answer's content
-terms traceable to retrieved text. That is a checkable lexical property, not a model's
-opinion of its own output.
+Retrieval metrics stop at "did the right document come back". `evaluation/generation_bench.py`
+measures what happens after that, against 60 answerable queries with gold content units and
+**12 held-out questions the corpus cannot answer**. Every judgment is computed against the
+corpus, never by asking a model to grade itself — which is why it runs offline, on the
+extractive path, with no API key and no spend.
+
+| metric | bm25 | dense | what it asks |
+|---|---|---|---|
+| groundedness | **0.9593** | **0.9611** | is the answer traceable to retrieved text |
+| fact_coverage | 0.3889 | 0.4083 | does it say the thing that mattered |
+| attribution | 0.5500 | 0.6056 | did the sentence come from a *relevant* chunk |
+| context_utilisation | 0.3533 | 0.3100 | how much retrieved text reached the answer |
+| **hallucination rate** | **0.6667** | **0.7500** | answered anyway when it could not know |
+
+**The finding: groundedness reads 0.96 next to a hallucination rate of 0.67.** Both numbers
+are correct. An extractive generator copies sentences, so it is grounded by construction —
+and when the question is unanswerable, retrieval still returns its top *k*, and a perfectly
+grounded sentence from a genuinely irrelevant document is exactly what comes out. Groundedness
+is worth reporting and worthless alone. It is the metric most likely to be quoted as evidence
+of safety, and on this system it certifies almost nothing.
+
+Fact coverage says the rest: under half the content that actually answers the question makes
+it into the answer, and roughly two fifths of the answer sentences come from a chunk that was
+never relevant. On `vocabulary_mismatch` queries attribution falls to **0.0351** under BM25 —
+it retrieves the wrong document and quotes it faithfully.
+
+### The harness immediately found a bug, and groundedness could not see it
+
+The corpus carries the same runbook per service and region on purpose, so the top chunks are
+often near-duplicates. Sentence selection had no dedup, and answers were spending all three
+slots restating one sentence three times. Adding dedup moved:
+
+| | before | after |
+|---|---|---|
+| fact_coverage | 0.3222 | **0.3889** (+21%) |
+| attribution | 0.5333 | 0.5500 |
+| **groundedness** | **0.9593** | **0.9593** (unchanged) |
+
+Two thirds of the answer was duplicate text and the groundedness score did not move by a
+single digit — copied text is traceable text, whether or not it is copied three times. The
+metric that would be quoted as evidence of answer quality was structurally incapable of
+seeing the defect. That is the argument for the other four columns in one line.
+
+### Knowing when not to answer
+
+Three abstention signals were implemented and benchmarked rather than blended. Separation
+between answerable and held-out unanswerable queries, as AUC:
+
+| signal | bm25 | dense |
+|---|---|---|
+| **top_score** — the raw top retrieval score | **0.6937** | **0.7722** |
+| coverage — query-term overlap with the best sentence | 0.6292 | 0.6111 |
+| margin — how far the top result stands out | 0.5549 | 0.6465 |
+
+The crudest signal won and the two designed ones are near-random. `coverage` has a structural
+defect worth naming: this corpus contains queries written to share *no content word* with
+their own relevant document — the queries dense retrieval exists to win — so a lexical
+confidence signal scores them near zero whether or not an answer exists.
+
+Thresholds are fitted at the 5th percentile of the answerable distribution, **using no
+unanswerable examples at all**, so those 12 queries remain a genuine test. What that choice
+buys, and what a different one would cost:
+
+| answerable lost | unanswerable caught (bm25) | unanswerable caught (dense) |
+|---|---|---|
+| 5% | 0.3333 | 0.2500 |
+| 20% | 0.3333 | 0.4167 |
+| 30% | 0.3333 | 0.5833 |
+| 40% | 0.5000 | 0.8333 |
+
+BM25's curve is flat: six times the cost for nothing. Dense buys real ground. That difference
+is invisible in the AUCs (0.69 vs 0.77) and is the reason the curve is published rather than a
+single number — **better separation did not mean better behaviour at the operating point.**
+
+### Why abstention is served for dense and not for BM25
+
+Turning it on for BM25 declined `ERR-4021 remediation steps` — a query BM25 answers
+**perfectly** (nDCG@10 1.0000 on exact-identifier queries), and the repository's own demo
+query. The cause is IDF: that answer is duplicated across fifteen near-identical runbooks, so
+the term is common and the score is low.
+
+| answers appear in | mean BM25 top score |
+|---|---|
+| many documents (n=20) | **4.116** |
+| a single document (n=40) | **11.332** |
+
+The threshold lands on the exact-identifier block — the queries BM25 is best at. A raw BM25
+score mixes "how well was this matched" with "how rare are these terms", and abstention needs
+only the first; dense cosines are bounded and normalised, so they mean the same thing from one
+query to the next. **A signal can rank well and still be the wrong thing to threshold on**, and
+an AUC of 0.6937 said nothing about it. BM25's threshold is fitted, recorded, and deliberately
+not served.
+
+This is where the honest limit sits: at the served threshold the system still answers three
+quarters of the questions it should refuse, and under the `bm25` default that
+`docker-compose` uses for fast startup it does not abstain at all. Fixing it needs a signal
+these lexical features do not contain. That is written up as a next step, not rounded away.
+
+### The LLM path
+
+The same harness scores the LLM path unchanged — it is one environment variable away and has
+never been the source of a reported number, because a metric that depends on a vendor, a model
+version and a sampling temperature is not reproducible by a reviewer. The abstention check runs
+*before* the model call, so a question the corpus cannot answer is also the call not paid for.
 
 The top retrieval score is reported as `retrieval_score`, not `confidence` — it says how
 well the query matched, not how likely the answer is correct.
@@ -468,23 +568,32 @@ a write path, it does not change how ranking works.
   `vocabulary_mismatch` guarantee enforced by a test rather than asserted.
 - A fitted reranker whose **null result is reported**, and a pretrained
   cross-encoder benched against it to prove the null was the task and not the model.
-- Groundedness as a checkable property of each answer.
-- Corpus and reranker reproducible, verified in CI.
+- Groundedness as a checkable property of each answer — **and four further metrics that
+  show why groundedness alone certifies nothing**: fact coverage, attribution, context
+  utilisation and hallucination rate on 12 held-out unanswerable questions.
+- An abstention threshold calibrated **without ever looking at the unanswerable set**,
+  with the operating curve published alongside the chosen point.
+- [Architecture decision records](docs/adr/) for the five contested choices, each with the
+  alternatives that were rejected and what would make it worth revisiting.
+- Corpus, reranker, generation eval set and abstention threshold reproducible, verified
+  in CI.
 
 **What is explicitly not real:**
 
 - The synthetic corpus is small (108 documents) and template-generated. BEIR carries
   the credible numbers; the synthetic corpus carries the offline demo and the
   per-query-type breakdown.
-- No cross-encoder reranker. A pretrained one would likely beat the fitted model; it is
-  not implemented here, so no claim is made about it.
-- No per-query routing between lexical and dense retrieval, which is what the fusion
-  result actually points at. A single global weight cannot exploit BM25 being better on
-  identifier queries and worse everywhere else.
 - Only NFCorpus was run from BEIR. `scifact` and `fiqa` are configured and one command
   away; FiQA is roughly a ten-hour encode on this CPU-only machine.
 - Answers are extractive. There is no abstractive generation without an LLM configured,
   and no reported metric uses the LLM path.
+- **Abstention is weak.** At the served threshold the system still answers three quarters
+  of the questions it cannot answer, and it is switched off entirely under the `bm25`
+  default because a raw BM25 score is not comparable across queries. A learned classifier
+  over more features is the fix, and there are only 12 genuine negatives to fit it on.
+- Answer quality is measured lexically. Fact coverage counts term groups, not meaning, so
+  a correct paraphrase scores zero. That understates the generator and is stated rather
+  than corrected by switching to a model-graded metric that could not be reproduced.
 - No query rewriting, no HyDE, no multi-hop retrieval, no chunk-boundary tuning.
 - No incremental indexing — the index is rebuilt from scratch on ingest.
 - The SQLite event store is an audit trail for demos, not a production system.

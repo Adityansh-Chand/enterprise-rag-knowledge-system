@@ -1,8 +1,13 @@
 {
   "response": {
-    "answer": "Error ERR-4021 is emitted when the upstream processor declines an authorization request. Error ERR-4021 is emitted when the upstream processor declines an authorization request. Error ERR-4021 is emitted when the upstream processor declines an authorization request.",
+    "answer": "Error ERR-4021 is emitted when the upstream processor declines an authorization request. Payment authorization declined by upstream processor (payments, eu-west-1). Service: payments.",
     "mode": "extractive",
     "groundedness": 1.0,
+    "answer_sources": [
+      "support:ERR-4021:payments:eu-west-1",
+      "support:ERR-4021:payments:eu-west-1",
+      "support:ERR-4021:payments:eu-west-1"
+    ],
     "retrieval_score": 1.6497,
     "sources": [
       {

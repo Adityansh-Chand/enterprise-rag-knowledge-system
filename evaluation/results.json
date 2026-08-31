@@ -17,9 +17,7 @@
         "ndcg@5": 0.676,
         "recall@10": 0.6444,
         "ndcg@10": 0.682,
-        "mrr@10": 0.6708,
-        "index_seconds": 0.01,
-        "query_ms": 0.4
+        "mrr@10": 0.6708
       },
       {
         "retriever": "lsa",
@@ -30,9 +28,7 @@
         "ndcg@5": 0.6491,
         "recall@10": 0.6222,
         "ndcg@10": 0.6544,
-        "mrr@10": 0.6401,
-        "index_seconds": 0.14,
-        "query_ms": 1.7
+        "mrr@10": 0.6401
       },
       {
         "retriever": "dense",
@@ -43,9 +39,7 @@
         "ndcg@5": 0.854,
         "recall@10": 0.7944,
         "ndcg@10": 0.8577,
-        "mrr@10": 0.8667,
-        "index_seconds": 0.0,
-        "query_ms": 757.4
+        "mrr@10": 0.8667
       },
       {
         "retriever": "hybrid(bm25+dense)",
@@ -56,9 +50,7 @@
         "ndcg@5": 0.7905,
         "recall@10": 0.7367,
         "ndcg@10": 0.7913,
-        "mrr@10": 0.795,
-        "index_seconds": 0.02,
-        "query_ms": 257.7
+        "mrr@10": 0.795
       }
     ],
     "by_query_type": {
@@ -105,9 +97,7 @@
         "ndcg@5": 0.3128,
         "recall@10": 0.1326,
         "ndcg@10": 0.2831,
-        "mrr@10": 0.4881,
-        "index_seconds": 1.77,
-        "query_ms": 10.3
+        "mrr@10": 0.4881
       },
       {
         "retriever": "lsa",
@@ -118,9 +108,7 @@
         "ndcg@5": 0.2803,
         "recall@10": 0.1277,
         "ndcg@10": 0.2613,
-        "mrr@10": 0.4244,
-        "index_seconds": 5.18,
-        "query_ms": 19.7
+        "mrr@10": 0.4244
       },
       {
         "retriever": "dense",
@@ -131,9 +119,7 @@
         "ndcg@5": 0.401,
         "recall@10": 0.1784,
         "ndcg@10": 0.3727,
-        "mrr@10": 0.5662,
-        "index_seconds": 2475.35,
-        "query_ms": 59.3
+        "mrr@10": 0.5662
       },
       {
         "retriever": "hybrid(bm25+dense)",
@@ -144,9 +130,7 @@
         "ndcg@5": 0.3777,
         "recall@10": 0.1637,
         "ndcg@10": 0.3423,
-        "mrr@10": 0.5627,
-        "index_seconds": 0.77,
-        "query_ms": 95.8
+        "mrr@10": 0.5627
       }
     ]
   }

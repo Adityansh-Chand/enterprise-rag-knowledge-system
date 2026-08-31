@@ -30,7 +30,16 @@ from rag.retrievers import (  # noqa: E402
 from rag.retrievers.dense import DEFAULT_MODEL  # noqa: E402
 
 RESULTS_PATH = ROOT / "evaluation" / "results.json"
+LATENCY_PATH = ROOT / "evaluation" / "latency.json"
 DEPTH = 10
+
+# Timings are printed and written to `latency.json`, which is not committed.
+# A quality metric is a property of the method and is identical on any machine;
+# a latency is a property of the machine, and committing it meant every run
+# produced a diff that said nothing. The durable timing record lives with the
+# cost model, where it is deliberately refreshed and stamped with the hardware
+# it was measured on, rather than churning on every evaluation.
+TIMING_KEYS = ("index_seconds", "query_ms")
 
 
 def make_retrievers(names, cache_path=None, model_name=DEFAULT_MODEL):
@@ -142,6 +151,32 @@ def evaluate_beir(dataset, retriever_names, model_name):
     return rows
 
 
+def split_timings(results):
+    """Separate machine-dependent timings from machine-independent quality.
+
+    Walks the nested result rows in place-safe fashion and returns two payloads
+    with the same shape, so neither file has to know how the other is laid out.
+    """
+    quality = json.loads(json.dumps(results))
+    timings = {}
+
+    def strip(rows, path):
+        kept = []
+        for row in rows:
+            timing = {key: row.pop(key) for key in TIMING_KEYS if key in row}
+            if timing:
+                timings.setdefault(path, {})[row["retriever"]] = timing
+            kept.append(row)
+        return kept
+
+    if "synthetic" in quality:
+        strip(quality["synthetic"]["overall"], "synthetic")
+    for dataset, rows in quality.get("beir", {}).items():
+        strip(rows, f"beir/{dataset}")
+
+    return quality, timings
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--beir", default=None,
@@ -161,12 +196,17 @@ def main():
         results.update(evaluate_synthetic(names, args.model))
 
     if not args.no_save:
+        quality, timings = split_timings(results)
+
         existing = {}
         if RESULTS_PATH.exists():
             existing = json.loads(RESULTS_PATH.read_text(encoding="utf-8"))
-        existing.update(results)
+        existing.update(quality)
         RESULTS_PATH.write_text(json.dumps(existing, indent=2) + "\n", encoding="utf-8")
-        print(f"\nresults -> {RESULTS_PATH.relative_to(ROOT)}")
+        print(f"\nresults  -> {RESULTS_PATH.relative_to(ROOT)}")
+
+        LATENCY_PATH.write_text(json.dumps(timings, indent=2) + "\n", encoding="utf-8")
+        print(f"timings  -> {LATENCY_PATH.relative_to(ROOT)} (not committed)")
 
 
 if __name__ == "__main__":

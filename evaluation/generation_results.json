@@ -1,0 +1,176 @@
+{
+  "bm25": {
+    "abstention": {
+      "answerable_declined": 0.05,
+      "curve": [
+        {
+          "answerable_declined": 0.05,
+          "percentile": 5.0,
+          "threshold": 1.687,
+          "unanswerable_declined": 0.3333
+        },
+        {
+          "answerable_declined": 0.1,
+          "percentile": 10.0,
+          "threshold": 1.8155,
+          "unanswerable_declined": 0.3333
+        },
+        {
+          "answerable_declined": 0.2,
+          "percentile": 20.0,
+          "threshold": 3.053,
+          "unanswerable_declined": 0.3333
+        },
+        {
+          "answerable_declined": 0.3,
+          "percentile": 30.0,
+          "threshold": 4.8541,
+          "unanswerable_declined": 0.3333
+        },
+        {
+          "answerable_declined": 0.4,
+          "percentile": 40.0,
+          "threshold": 5.8586,
+          "unanswerable_declined": 0.5
+        }
+      ],
+      "hallucination_rate": 0.6667,
+      "signal_auc": {
+        "coverage": 0.6292,
+        "margin": 0.5549,
+        "top_score": 0.6937
+      },
+      "unanswerable_declined": 0.3333
+    },
+    "answerable": {
+      "attribution": 0.55,
+      "context_utilisation": 0.3533,
+      "fact_coverage": 0.3889,
+      "groundedness": 0.9593
+    },
+    "by_query_type": {
+      "acronym": {
+        "attribution": 1.0,
+        "context_utilisation": 0.3333,
+        "fact_coverage": 0.3333,
+        "groundedness": 1.0
+      },
+      "exact_identifier": {
+        "attribution": 0.8333,
+        "context_utilisation": 0.2429,
+        "fact_coverage": 0.3869,
+        "groundedness": 0.9444
+      },
+      "paraphrase": {
+        "attribution": 0.7544,
+        "context_utilisation": 0.3579,
+        "fact_coverage": 0.6447,
+        "groundedness": 1.0
+      },
+      "polysemy": {
+        "attribution": 0.6,
+        "context_utilisation": 0.36,
+        "fact_coverage": 0.6833,
+        "groundedness": 1.0
+      },
+      "vocabulary_mismatch": {
+        "attribution": 0.0526,
+        "context_utilisation": 0.4316,
+        "fact_coverage": 0.0658,
+        "groundedness": 0.9123
+      }
+    },
+    "n_answerable": 60,
+    "n_unanswerable": 12,
+    "retriever": "bm25",
+    "signal": "top_score",
+    "threshold": 1.687
+  },
+  "dense": {
+    "abstention": {
+      "answerable_declined": 0.05,
+      "curve": [
+        {
+          "answerable_declined": 0.05,
+          "percentile": 5.0,
+          "threshold": 0.5023,
+          "unanswerable_declined": 0.25
+        },
+        {
+          "answerable_declined": 0.1,
+          "percentile": 10.0,
+          "threshold": 0.5245,
+          "unanswerable_declined": 0.25
+        },
+        {
+          "answerable_declined": 0.2,
+          "percentile": 20.0,
+          "threshold": 0.5438,
+          "unanswerable_declined": 0.4167
+        },
+        {
+          "answerable_declined": 0.3,
+          "percentile": 30.0,
+          "threshold": 0.5738,
+          "unanswerable_declined": 0.5833
+        },
+        {
+          "answerable_declined": 0.4,
+          "percentile": 40.0,
+          "threshold": 0.601,
+          "unanswerable_declined": 0.8333
+        }
+      ],
+      "hallucination_rate": 0.75,
+      "signal_auc": {
+        "coverage": 0.6111,
+        "margin": 0.6465,
+        "top_score": 0.7722
+      },
+      "unanswerable_declined": 0.25
+    },
+    "answerable": {
+      "attribution": 0.6056,
+      "context_utilisation": 0.31,
+      "fact_coverage": 0.4083,
+      "groundedness": 0.9611
+    },
+    "by_query_type": {
+      "acronym": {
+        "attribution": 1.0,
+        "context_utilisation": 0.3333,
+        "fact_coverage": 0.3333,
+        "groundedness": 1.0
+      },
+      "exact_identifier": {
+        "attribution": 0.8333,
+        "context_utilisation": 0.2429,
+        "fact_coverage": 0.3869,
+        "groundedness": 0.9444
+      },
+      "paraphrase": {
+        "attribution": 0.807,
+        "context_utilisation": 0.3263,
+        "fact_coverage": 0.6798,
+        "groundedness": 1.0
+      },
+      "polysemy": {
+        "attribution": 0.5333,
+        "context_utilisation": 0.4,
+        "fact_coverage": 0.4833,
+        "groundedness": 1.0
+      },
+      "vocabulary_mismatch": {
+        "attribution": 0.193,
+        "context_utilisation": 0.3158,
+        "fact_coverage": 0.1447,
+        "groundedness": 0.9181
+      }
+    },
+    "n_answerable": 60,
+    "n_unanswerable": 12,
+    "retriever": "dense",
+    "signal": "top_score",
+    "threshold": 0.5023
+  }
+}

@@ -28,6 +28,14 @@ jobs:
       - name: Reranker artifact is reproducible
         run: python training/train_reranker.py --verify --retriever bm25
 
+      - name: Generation eval set is reproducible
+        run: python training/generate_generation_eval.py --check
+
+      # bm25 only: the dense thresholds in the same artifact were fitted with
+      # the embedding model, which CI does not download.
+      - name: Abstention threshold is reproducible
+        run: python training/calibrate_abstention.py --retriever bm25 --verify
+
       - name: Run tests
         run: python -m pytest -q
 
@@ -35,6 +43,12 @@ jobs:
       # and are not part of CI -- see the README for how to reproduce those.
       - name: Retrieval bench (offline corpus)
         run: python evaluation/harness.py --retrievers bm25,lsa --no-save
+
+      # Answer quality, as opposed to ranking quality. Runs on the extractive
+      # path with no API key and no spend -- the LLM path scores on the same
+      # metrics but is not what any reported number comes from.
+      - name: Generation bench (offline corpus)
+        run: python evaluation/generation_bench.py --retrievers bm25 --no-save
 
   docker-build:
     name: Docker image build
