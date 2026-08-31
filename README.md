@@ -181,6 +181,72 @@ not implemented here, and no claim is made about it.
 
 Raw sweep and both halves: [`models/artifacts/fusion_weights.json`](models/artifacts/fusion_weights.json).
 
+## Per-query routing — where a global choice loses
+
+Tuning weighted fusion chose **pure dense** on both corpora: semantic weight 1.0,
+lexical 0.0. Honest, and also a limitation — one weight applied to every query
+cannot exploit BM25 being genuinely better on *some* of them.
+
+`ERR-4021 remediation steps` is a lexical problem: the answer contains that exact
+token and nothing else does, so an embedding that places it near other error codes
+actively hurts. `customers cannot complete purchases at the final step` is the
+opposite — it shares no content word with the document about checkout latency, and
+BM25 scores it **0.0000**.
+
+So the choice is made per query, from the query text alone:
+
+```python
+a query containing an identifier-shaped token  ->  lexical
+everything else                                ->  semantic
+```
+
+```bash
+python training/tune_router.py
+RETRIEVER=router uvicorn api.server:app --port 8000
+```
+
+**Report half only** (queries split dev/report by sorted id, the rule fixed before
+measurement — the same discipline `tune_fusion.py` uses):
+
+| retriever | nDCG@10 | Recall@10 | MRR@10 |
+|---|---|---|---|
+| bm25 | 0.6996 | 0.6667 | 0.6889 |
+| dense | 0.9390 | 0.8467 | 0.9500 |
+| **router** | **0.9458** | **0.8533** | 0.9500 |
+| hybrid | 0.8551 | 0.8000 | 0.8611 |
+
+**+0.0068 over pure dense** — small, and the per-type breakdown is what makes it
+believable rather than noise:
+
+| query type | bm25 | dense | router |
+|---|---|---|---|
+| exact_identifier | **1.0000** | 0.9710 | **1.0000** |
+| acronym | 0.5000 | **1.0000** | **1.0000** |
+| paraphrase | 0.9692 | **1.0000** | **1.0000** |
+| polysemy | 0.6781 | **1.0000** | **1.0000** |
+| vocabulary_mismatch | 0.0000 | **0.7676** | **0.7676** |
+
+The router takes BM25's win on identifier queries and dense's win everywhere else.
+That is the whole mechanism, and it is why the aggregate gain is small here: only
+about a quarter of these queries are identifier-shaped. On a corpus with more of
+them the same rule pays more.
+
+### Two constraints that make this believable
+
+**The rule never sees the corpus's query-type labels.** They exist in
+`datasets/queries.json`, and routing on them would score beautifully and mean
+nothing — it is exactly the circular evaluation this repository was rebuilt to
+remove. A test asserts the rule fires *only* on `exact_identifier` queries, which
+is the check that would catch a rule tuned to fire indiscriminately.
+
+**An acronym alone does not trigger it.** `what does our DPA say about
+sub-processors` is prose that happens to contain an acronym, and the document
+answering it uses the expansion — BM25 scores 0.5000 there against dense's 1.0000.
+A cruder rule firing on any uppercase run would have routed it the wrong way.
+
+Routing costs nothing at query time (a regex) but indexes both retrievers, so
+memory and index time are the sum of the two. That is stated rather than elided.
+
 ## Reranking — a measured null result
 
 `rag/reranker.py` is a **fitted** pairwise model (logistic regression over term
