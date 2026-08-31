@@ -32,3 +32,8 @@ data/
 
 # local caches (datasets, embeddings) -- never committed
 .cache/
+
+# Machine-dependent timings from the retrieval bench. Quality metrics are
+# committed; latencies are not, because they differ per machine and would
+# produce a diff on every run that said nothing.
+evaluation/latency.json

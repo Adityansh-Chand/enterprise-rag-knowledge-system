@@ -1,0 +1,2152 @@
+{
+  "answerable": [
+    {
+      "id": "q001",
+      "text": "ERR-4021 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-4021",
+      "relevant": [
+        "support:ERR-4021:billing:ap-south-1",
+        "support:ERR-4021:billing:eu-west-1",
+        "support:ERR-4021:billing:us-east-1",
+        "support:ERR-4021:checkout:ap-south-1",
+        "support:ERR-4021:checkout:eu-west-1",
+        "support:ERR-4021:checkout:us-east-1",
+        "support:ERR-4021:identity:ap-south-1",
+        "support:ERR-4021:identity:eu-west-1",
+        "support:ERR-4021:identity:us-east-1",
+        "support:ERR-4021:payments:ap-south-1",
+        "support:ERR-4021:payments:eu-west-1",
+        "support:ERR-4021:payments:us-east-1",
+        "support:ERR-4021:search:ap-south-1",
+        "support:ERR-4021:search:eu-west-1",
+        "support:ERR-4021:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "inspect",
+          "response",
+          "envelope"
+        ],
+        [
+          "merchant",
+          "descriptor",
+          "registered"
+        ],
+        [
+          "retry",
+          "authorization",
+          "once"
+        ],
+        [
+          "escalate",
+          "issuer_unavailable"
+        ]
+      ]
+    },
+    {
+      "id": "q002",
+      "text": "customers cannot complete purchases at the final step",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-4021",
+      "relevant": [
+        "support:ERR-4021:billing:ap-south-1",
+        "support:ERR-4021:billing:eu-west-1",
+        "support:ERR-4021:billing:us-east-1",
+        "support:ERR-4021:checkout:ap-south-1",
+        "support:ERR-4021:checkout:eu-west-1",
+        "support:ERR-4021:checkout:us-east-1",
+        "support:ERR-4021:identity:ap-south-1",
+        "support:ERR-4021:identity:eu-west-1",
+        "support:ERR-4021:identity:us-east-1",
+        "support:ERR-4021:payments:ap-south-1",
+        "support:ERR-4021:payments:eu-west-1",
+        "support:ERR-4021:payments:us-east-1",
+        "support:ERR-4021:search:ap-south-1",
+        "support:ERR-4021:search:eu-west-1",
+        "support:ERR-4021:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "inspect",
+          "response",
+          "envelope"
+        ],
+        [
+          "merchant",
+          "descriptor",
+          "registered"
+        ],
+        [
+          "retry",
+          "authorization",
+          "once"
+        ],
+        [
+          "escalate",
+          "issuer_unavailable"
+        ]
+      ]
+    },
+    {
+      "id": "q003",
+      "text": "upstream processor is refusing authorization requests",
+      "type": "paraphrase",
+      "topic": "support:ERR-4021",
+      "relevant": [
+        "support:ERR-4021:billing:ap-south-1",
+        "support:ERR-4021:billing:eu-west-1",
+        "support:ERR-4021:billing:us-east-1",
+        "support:ERR-4021:checkout:ap-south-1",
+        "support:ERR-4021:checkout:eu-west-1",
+        "support:ERR-4021:checkout:us-east-1",
+        "support:ERR-4021:identity:ap-south-1",
+        "support:ERR-4021:identity:eu-west-1",
+        "support:ERR-4021:identity:us-east-1",
+        "support:ERR-4021:payments:ap-south-1",
+        "support:ERR-4021:payments:eu-west-1",
+        "support:ERR-4021:payments:us-east-1",
+        "support:ERR-4021:search:ap-south-1",
+        "support:ERR-4021:search:eu-west-1",
+        "support:ERR-4021:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "inspect",
+          "response",
+          "envelope"
+        ],
+        [
+          "merchant",
+          "descriptor",
+          "registered"
+        ],
+        [
+          "retry",
+          "authorization",
+          "once"
+        ],
+        [
+          "escalate",
+          "issuer_unavailable"
+        ]
+      ]
+    },
+    {
+      "id": "q004",
+      "text": "ERR-5503 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-5503",
+      "relevant": [
+        "support:ERR-5503:billing:ap-south-1",
+        "support:ERR-5503:billing:eu-west-1",
+        "support:ERR-5503:billing:us-east-1",
+        "support:ERR-5503:checkout:ap-south-1",
+        "support:ERR-5503:checkout:eu-west-1",
+        "support:ERR-5503:checkout:us-east-1",
+        "support:ERR-5503:identity:ap-south-1",
+        "support:ERR-5503:identity:eu-west-1",
+        "support:ERR-5503:identity:us-east-1",
+        "support:ERR-5503:payments:ap-south-1",
+        "support:ERR-5503:payments:eu-west-1",
+        "support:ERR-5503:payments:us-east-1",
+        "support:ERR-5503:search:ap-south-1",
+        "support:ERR-5503:search:eu-west-1",
+        "support:ERR-5503:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "confirm",
+          "connection",
+          "pool",
+          "saturation"
+        ],
+        [
+          "inspect",
+          "slow",
+          "query",
+          "logs"
+        ],
+        [
+          "compare",
+          "deployment",
+          "marker"
+        ],
+        [
+          "roll",
+          "back",
+          "release"
+        ]
+      ]
+    },
+    {
+      "id": "q005",
+      "text": "the website feels extremely sluggish for shoppers today",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-5503",
+      "relevant": [
+        "support:ERR-5503:billing:ap-south-1",
+        "support:ERR-5503:billing:eu-west-1",
+        "support:ERR-5503:billing:us-east-1",
+        "support:ERR-5503:checkout:ap-south-1",
+        "support:ERR-5503:checkout:eu-west-1",
+        "support:ERR-5503:checkout:us-east-1",
+        "support:ERR-5503:identity:ap-south-1",
+        "support:ERR-5503:identity:eu-west-1",
+        "support:ERR-5503:identity:us-east-1",
+        "support:ERR-5503:payments:ap-south-1",
+        "support:ERR-5503:payments:eu-west-1",
+        "support:ERR-5503:payments:us-east-1",
+        "support:ERR-5503:search:ap-south-1",
+        "support:ERR-5503:search:eu-west-1",
+        "support:ERR-5503:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "confirm",
+          "connection",
+          "pool",
+          "saturation"
+        ],
+        [
+          "inspect",
+          "slow",
+          "query",
+          "logs"
+        ],
+        [
+          "compare",
+          "deployment",
+          "marker"
+        ],
+        [
+          "roll",
+          "back",
+          "release"
+        ]
+      ]
+    },
+    {
+      "id": "q006",
+      "text": "sustained high tail latency above budget",
+      "type": "paraphrase",
+      "topic": "support:ERR-5503",
+      "relevant": [
+        "support:ERR-5503:billing:ap-south-1",
+        "support:ERR-5503:billing:eu-west-1",
+        "support:ERR-5503:billing:us-east-1",
+        "support:ERR-5503:checkout:ap-south-1",
+        "support:ERR-5503:checkout:eu-west-1",
+        "support:ERR-5503:checkout:us-east-1",
+        "support:ERR-5503:identity:ap-south-1",
+        "support:ERR-5503:identity:eu-west-1",
+        "support:ERR-5503:identity:us-east-1",
+        "support:ERR-5503:payments:ap-south-1",
+        "support:ERR-5503:payments:eu-west-1",
+        "support:ERR-5503:payments:us-east-1",
+        "support:ERR-5503:search:ap-south-1",
+        "support:ERR-5503:search:eu-west-1",
+        "support:ERR-5503:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "confirm",
+          "connection",
+          "pool",
+          "saturation"
+        ],
+        [
+          "inspect",
+          "slow",
+          "query",
+          "logs"
+        ],
+        [
+          "compare",
+          "deployment",
+          "marker"
+        ],
+        [
+          "roll",
+          "back",
+          "release"
+        ]
+      ]
+    },
+    {
+      "id": "q007",
+      "text": "ERR-3310 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-3310",
+      "relevant": [
+        "support:ERR-3310:billing:ap-south-1",
+        "support:ERR-3310:billing:eu-west-1",
+        "support:ERR-3310:billing:us-east-1",
+        "support:ERR-3310:checkout:ap-south-1",
+        "support:ERR-3310:checkout:eu-west-1",
+        "support:ERR-3310:checkout:us-east-1",
+        "support:ERR-3310:identity:ap-south-1",
+        "support:ERR-3310:identity:eu-west-1",
+        "support:ERR-3310:identity:us-east-1",
+        "support:ERR-3310:payments:ap-south-1",
+        "support:ERR-3310:payments:eu-west-1",
+        "support:ERR-3310:payments:us-east-1",
+        "support:ERR-3310:search:ap-south-1",
+        "support:ERR-3310:search:eu-west-1",
+        "support:ERR-3310:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "verify",
+          "key",
+          "identifier",
+          "token",
+          "header"
+        ],
+        [
+          "confirm",
+          "rotation",
+          "completed",
+          "replicas"
+        ],
+        [
+          "invalidate",
+          "cached",
+          "public",
+          "keys"
+        ]
+      ]
+    },
+    {
+      "id": "q008",
+      "text": "people keep getting logged out unexpectedly",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-3310",
+      "relevant": [
+        "support:ERR-3310:billing:ap-south-1",
+        "support:ERR-3310:billing:eu-west-1",
+        "support:ERR-3310:billing:us-east-1",
+        "support:ERR-3310:checkout:ap-south-1",
+        "support:ERR-3310:checkout:eu-west-1",
+        "support:ERR-3310:checkout:us-east-1",
+        "support:ERR-3310:identity:ap-south-1",
+        "support:ERR-3310:identity:eu-west-1",
+        "support:ERR-3310:identity:us-east-1",
+        "support:ERR-3310:payments:ap-south-1",
+        "support:ERR-3310:payments:eu-west-1",
+        "support:ERR-3310:payments:us-east-1",
+        "support:ERR-3310:search:ap-south-1",
+        "support:ERR-3310:search:eu-west-1",
+        "support:ERR-3310:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "verify",
+          "key",
+          "identifier",
+          "token",
+          "header"
+        ],
+        [
+          "confirm",
+          "rotation",
+          "completed",
+          "replicas"
+        ],
+        [
+          "invalidate",
+          "cached",
+          "public",
+          "keys"
+        ]
+      ]
+    },
+    {
+      "id": "q009",
+      "text": "tokens failing validation after a key rotation",
+      "type": "paraphrase",
+      "topic": "support:ERR-3310",
+      "relevant": [
+        "support:ERR-3310:billing:ap-south-1",
+        "support:ERR-3310:billing:eu-west-1",
+        "support:ERR-3310:billing:us-east-1",
+        "support:ERR-3310:checkout:ap-south-1",
+        "support:ERR-3310:checkout:eu-west-1",
+        "support:ERR-3310:checkout:us-east-1",
+        "support:ERR-3310:identity:ap-south-1",
+        "support:ERR-3310:identity:eu-west-1",
+        "support:ERR-3310:identity:us-east-1",
+        "support:ERR-3310:payments:ap-south-1",
+        "support:ERR-3310:payments:eu-west-1",
+        "support:ERR-3310:payments:us-east-1",
+        "support:ERR-3310:search:ap-south-1",
+        "support:ERR-3310:search:eu-west-1",
+        "support:ERR-3310:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "verify",
+          "key",
+          "identifier",
+          "token",
+          "header"
+        ],
+        [
+          "confirm",
+          "rotation",
+          "completed",
+          "replicas"
+        ],
+        [
+          "invalidate",
+          "cached",
+          "public",
+          "keys"
+        ]
+      ]
+    },
+    {
+      "id": "q010",
+      "text": "ERR-2907 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-2907",
+      "relevant": [
+        "support:ERR-2907:billing:ap-south-1",
+        "support:ERR-2907:billing:eu-west-1",
+        "support:ERR-2907:billing:us-east-1",
+        "support:ERR-2907:checkout:ap-south-1",
+        "support:ERR-2907:checkout:eu-west-1",
+        "support:ERR-2907:checkout:us-east-1",
+        "support:ERR-2907:identity:ap-south-1",
+        "support:ERR-2907:identity:eu-west-1",
+        "support:ERR-2907:identity:us-east-1",
+        "support:ERR-2907:payments:ap-south-1",
+        "support:ERR-2907:payments:eu-west-1",
+        "support:ERR-2907:payments:us-east-1",
+        "support:ERR-2907:search:ap-south-1",
+        "support:ERR-2907:search:eu-west-1",
+        "support:ERR-2907:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "check",
+          "consumer",
+          "health"
+        ],
+        [
+          "confirm",
+          "partition",
+          "assignment",
+          "balanced"
+        ],
+        [
+          "scale",
+          "consumer",
+          "group"
+        ],
+        [
+          "retention",
+          "window",
+          "expires"
+        ]
+      ]
+    },
+    {
+      "id": "q011",
+      "text": "reports are showing yesterday's numbers instead of today's",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-2907",
+      "relevant": [
+        "support:ERR-2907:billing:ap-south-1",
+        "support:ERR-2907:billing:eu-west-1",
+        "support:ERR-2907:billing:us-east-1",
+        "support:ERR-2907:checkout:ap-south-1",
+        "support:ERR-2907:checkout:eu-west-1",
+        "support:ERR-2907:checkout:us-east-1",
+        "support:ERR-2907:identity:ap-south-1",
+        "support:ERR-2907:identity:eu-west-1",
+        "support:ERR-2907:identity:us-east-1",
+        "support:ERR-2907:payments:ap-south-1",
+        "support:ERR-2907:payments:eu-west-1",
+        "support:ERR-2907:payments:us-east-1",
+        "support:ERR-2907:search:ap-south-1",
+        "support:ERR-2907:search:eu-west-1",
+        "support:ERR-2907:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "check",
+          "consumer",
+          "health"
+        ],
+        [
+          "confirm",
+          "partition",
+          "assignment",
+          "balanced"
+        ],
+        [
+          "scale",
+          "consumer",
+          "group"
+        ],
+        [
+          "retention",
+          "window",
+          "expires"
+        ]
+      ]
+    },
+    {
+      "id": "q012",
+      "text": "ingestion queue consumers falling behind",
+      "type": "paraphrase",
+      "topic": "support:ERR-2907",
+      "relevant": [
+        "support:ERR-2907:billing:ap-south-1",
+        "support:ERR-2907:billing:eu-west-1",
+        "support:ERR-2907:billing:us-east-1",
+        "support:ERR-2907:checkout:ap-south-1",
+        "support:ERR-2907:checkout:eu-west-1",
+        "support:ERR-2907:checkout:us-east-1",
+        "support:ERR-2907:identity:ap-south-1",
+        "support:ERR-2907:identity:eu-west-1",
+        "support:ERR-2907:identity:us-east-1",
+        "support:ERR-2907:payments:ap-south-1",
+        "support:ERR-2907:payments:eu-west-1",
+        "support:ERR-2907:payments:us-east-1",
+        "support:ERR-2907:search:ap-south-1",
+        "support:ERR-2907:search:eu-west-1",
+        "support:ERR-2907:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "check",
+          "consumer",
+          "health"
+        ],
+        [
+          "confirm",
+          "partition",
+          "assignment",
+          "balanced"
+        ],
+        [
+          "scale",
+          "consumer",
+          "group"
+        ],
+        [
+          "retention",
+          "window",
+          "expires"
+        ]
+      ]
+    },
+    {
+      "id": "q013",
+      "text": "ERR-6142 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-6142",
+      "relevant": [
+        "support:ERR-6142:billing:ap-south-1",
+        "support:ERR-6142:billing:eu-west-1",
+        "support:ERR-6142:billing:us-east-1",
+        "support:ERR-6142:checkout:ap-south-1",
+        "support:ERR-6142:checkout:eu-west-1",
+        "support:ERR-6142:checkout:us-east-1",
+        "support:ERR-6142:identity:ap-south-1",
+        "support:ERR-6142:identity:eu-west-1",
+        "support:ERR-6142:identity:us-east-1",
+        "support:ERR-6142:payments:ap-south-1",
+        "support:ERR-6142:payments:eu-west-1",
+        "support:ERR-6142:payments:us-east-1",
+        "support:ERR-6142:search:ap-south-1",
+        "support:ERR-6142:search:eu-west-1",
+        "support:ERR-6142:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "identify",
+          "long-running",
+          "transactions"
+        ],
+        [
+          "confirm",
+          "pool",
+          "ceiling",
+          "database",
+          "maximum"
+        ],
+        [
+          "terminate",
+          "idle",
+          "sessions"
+        ]
+      ]
+    },
+    {
+      "id": "q014",
+      "text": "everything times out whenever traffic gets busy",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-6142",
+      "relevant": [
+        "support:ERR-6142:billing:ap-south-1",
+        "support:ERR-6142:billing:eu-west-1",
+        "support:ERR-6142:billing:us-east-1",
+        "support:ERR-6142:checkout:ap-south-1",
+        "support:ERR-6142:checkout:eu-west-1",
+        "support:ERR-6142:checkout:us-east-1",
+        "support:ERR-6142:identity:ap-south-1",
+        "support:ERR-6142:identity:eu-west-1",
+        "support:ERR-6142:identity:us-east-1",
+        "support:ERR-6142:payments:ap-south-1",
+        "support:ERR-6142:payments:eu-west-1",
+        "support:ERR-6142:payments:us-east-1",
+        "support:ERR-6142:search:ap-south-1",
+        "support:ERR-6142:search:eu-west-1",
+        "support:ERR-6142:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "identify",
+          "long-running",
+          "transactions"
+        ],
+        [
+          "confirm",
+          "pool",
+          "ceiling",
+          "database",
+          "maximum"
+        ],
+        [
+          "terminate",
+          "idle",
+          "sessions"
+        ]
+      ]
+    },
+    {
+      "id": "q015",
+      "text": "no free connections left in the pool",
+      "type": "paraphrase",
+      "topic": "support:ERR-6142",
+      "relevant": [
+        "support:ERR-6142:billing:ap-south-1",
+        "support:ERR-6142:billing:eu-west-1",
+        "support:ERR-6142:billing:us-east-1",
+        "support:ERR-6142:checkout:ap-south-1",
+        "support:ERR-6142:checkout:eu-west-1",
+        "support:ERR-6142:checkout:us-east-1",
+        "support:ERR-6142:identity:ap-south-1",
+        "support:ERR-6142:identity:eu-west-1",
+        "support:ERR-6142:identity:us-east-1",
+        "support:ERR-6142:payments:ap-south-1",
+        "support:ERR-6142:payments:eu-west-1",
+        "support:ERR-6142:payments:us-east-1",
+        "support:ERR-6142:search:ap-south-1",
+        "support:ERR-6142:search:eu-west-1",
+        "support:ERR-6142:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "identify",
+          "long-running",
+          "transactions"
+        ],
+        [
+          "confirm",
+          "pool",
+          "ceiling",
+          "database",
+          "maximum"
+        ],
+        [
+          "terminate",
+          "idle",
+          "sessions"
+        ]
+      ]
+    },
+    {
+      "id": "q016",
+      "text": "ERR-7788 remediation steps",
+      "type": "exact_identifier",
+      "topic": "support:ERR-7788",
+      "relevant": [
+        "support:ERR-7788:billing:ap-south-1",
+        "support:ERR-7788:billing:eu-west-1",
+        "support:ERR-7788:billing:us-east-1",
+        "support:ERR-7788:checkout:ap-south-1",
+        "support:ERR-7788:checkout:eu-west-1",
+        "support:ERR-7788:checkout:us-east-1",
+        "support:ERR-7788:identity:ap-south-1",
+        "support:ERR-7788:identity:eu-west-1",
+        "support:ERR-7788:identity:us-east-1",
+        "support:ERR-7788:payments:ap-south-1",
+        "support:ERR-7788:payments:eu-west-1",
+        "support:ERR-7788:payments:us-east-1",
+        "support:ERR-7788:search:ap-south-1",
+        "support:ERR-7788:search:eu-west-1",
+        "support:ERR-7788:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "renew",
+          "certificate"
+        ],
+        [
+          "redistribute",
+          "every",
+          "replica"
+        ],
+        [
+          "confirm",
+          "expiry",
+          "monitor"
+        ]
+      ]
+    },
+    {
+      "id": "q017",
+      "text": "our integration partner stopped receiving anything from us",
+      "type": "vocabulary_mismatch",
+      "topic": "support:ERR-7788",
+      "relevant": [
+        "support:ERR-7788:billing:ap-south-1",
+        "support:ERR-7788:billing:eu-west-1",
+        "support:ERR-7788:billing:us-east-1",
+        "support:ERR-7788:checkout:ap-south-1",
+        "support:ERR-7788:checkout:eu-west-1",
+        "support:ERR-7788:checkout:us-east-1",
+        "support:ERR-7788:identity:ap-south-1",
+        "support:ERR-7788:identity:eu-west-1",
+        "support:ERR-7788:identity:us-east-1",
+        "support:ERR-7788:payments:ap-south-1",
+        "support:ERR-7788:payments:eu-west-1",
+        "support:ERR-7788:payments:us-east-1",
+        "support:ERR-7788:search:ap-south-1",
+        "support:ERR-7788:search:eu-west-1",
+        "support:ERR-7788:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "renew",
+          "certificate"
+        ],
+        [
+          "redistribute",
+          "every",
+          "replica"
+        ],
+        [
+          "confirm",
+          "expiry",
+          "monitor"
+        ]
+      ]
+    },
+    {
+      "id": "q018",
+      "text": "expired client certificate breaking TLS handshakes",
+      "type": "paraphrase",
+      "topic": "support:ERR-7788",
+      "relevant": [
+        "support:ERR-7788:billing:ap-south-1",
+        "support:ERR-7788:billing:eu-west-1",
+        "support:ERR-7788:billing:us-east-1",
+        "support:ERR-7788:checkout:ap-south-1",
+        "support:ERR-7788:checkout:eu-west-1",
+        "support:ERR-7788:checkout:us-east-1",
+        "support:ERR-7788:identity:ap-south-1",
+        "support:ERR-7788:identity:eu-west-1",
+        "support:ERR-7788:identity:us-east-1",
+        "support:ERR-7788:payments:ap-south-1",
+        "support:ERR-7788:payments:eu-west-1",
+        "support:ERR-7788:payments:us-east-1",
+        "support:ERR-7788:search:ap-south-1",
+        "support:ERR-7788:search:eu-west-1",
+        "support:ERR-7788:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "renew",
+          "certificate"
+        ],
+        [
+          "redistribute",
+          "every",
+          "replica"
+        ],
+        [
+          "confirm",
+          "expiry",
+          "monitor"
+        ]
+      ]
+    },
+    {
+      "id": "q019",
+      "text": "how long do I get to claim money back after being away on business",
+      "type": "vocabulary_mismatch",
+      "topic": "finance:expense-travel",
+      "relevant": [
+        "finance:expense-travel"
+      ],
+      "facts": [
+        [
+          "sixty",
+          "days",
+          "trip"
+        ],
+        [
+          "itemised",
+          "receipt"
+        ],
+        [
+          "economy",
+          "fare",
+          "cap",
+          "prior",
+          "written",
+          "approval"
+        ],
+        [
+          "per",
+          "diem",
+          "published",
+          "schedule"
+        ]
+      ]
+    },
+    {
+      "id": "q020",
+      "text": "reimbursement rules for business travel costs",
+      "type": "paraphrase",
+      "topic": "finance:expense-travel",
+      "relevant": [
+        "finance:expense-travel"
+      ],
+      "facts": [
+        [
+          "sixty",
+          "days",
+          "trip"
+        ],
+        [
+          "itemised",
+          "receipt"
+        ],
+        [
+          "economy",
+          "fare",
+          "cap",
+          "prior",
+          "written",
+          "approval"
+        ],
+        [
+          "per",
+          "diem",
+          "published",
+          "schedule"
+        ]
+      ]
+    },
+    {
+      "id": "q021",
+      "text": "when does a large customer actually have to pay us",
+      "type": "vocabulary_mismatch",
+      "topic": "finance:net-payment-terms",
+      "relevant": [
+        "finance:net-payment-terms"
+      ],
+      "facts": [
+        [
+          "net",
+          "sixty",
+          "invoice",
+          "issue",
+          "date"
+        ],
+        [
+          "ten",
+          "days",
+          "two",
+          "percent",
+          "discount"
+        ],
+        [
+          "interest",
+          "statutory",
+          "rate"
+        ],
+        [
+          "collections",
+          "ninety",
+          "days"
+        ]
+      ]
+    },
+    {
+      "id": "q022",
+      "text": "net sixty terms and the early settlement discount",
+      "type": "paraphrase",
+      "topic": "finance:net-payment-terms",
+      "relevant": [
+        "finance:net-payment-terms"
+      ],
+      "facts": [
+        [
+          "net",
+          "sixty",
+          "invoice",
+          "issue",
+          "date"
+        ],
+        [
+          "ten",
+          "days",
+          "two",
+          "percent",
+          "discount"
+        ],
+        [
+          "interest",
+          "statutory",
+          "rate"
+        ],
+        [
+          "collections",
+          "ninety",
+          "days"
+        ]
+      ]
+    },
+    {
+      "id": "q023",
+      "text": "who needs to authorise when I want to buy something expensive",
+      "type": "vocabulary_mismatch",
+      "topic": "finance:procurement-threshold",
+      "relevant": [
+        "finance:procurement-threshold"
+      ],
+      "facts": [
+        [
+          "below",
+          "ten",
+          "thousand",
+          "single",
+          "department",
+          "approval"
+        ],
+        [
+          "finance",
+          "review",
+          "competitive",
+          "quote"
+        ],
+        [
+          "formal",
+          "tender",
+          "executive"
+        ]
+      ]
+    },
+    {
+      "id": "q024",
+      "text": "spending limits and the approvals each one needs",
+      "type": "paraphrase",
+      "topic": "finance:procurement-threshold",
+      "relevant": [
+        "finance:procurement-threshold"
+      ],
+      "facts": [
+        [
+          "below",
+          "ten",
+          "thousand",
+          "single",
+          "department",
+          "approval"
+        ],
+        [
+          "finance",
+          "review",
+          "competitive",
+          "quote"
+        ],
+        [
+          "formal",
+          "tender",
+          "executive"
+        ]
+      ]
+    },
+    {
+      "id": "q025",
+      "text": "how do we book income from long customer commitments",
+      "type": "vocabulary_mismatch",
+      "topic": "finance:revenue-recognition",
+      "relevant": [
+        "finance:revenue-recognition"
+      ],
+      "facts": [
+        [
+          "recognised",
+          "rateably",
+          "committed",
+          "service",
+          "period"
+        ],
+        [
+          "unbundled",
+          "performance",
+          "obligations"
+        ],
+        [
+          "implementation",
+          "fee",
+          "milestone"
+        ]
+      ]
+    },
+    {
+      "id": "q026",
+      "text": "rateable recognition across the service period",
+      "type": "paraphrase",
+      "topic": "finance:revenue-recognition",
+      "relevant": [
+        "finance:revenue-recognition"
+      ],
+      "facts": [
+        [
+          "recognised",
+          "rateably",
+          "committed",
+          "service",
+          "period"
+        ],
+        [
+          "unbundled",
+          "performance",
+          "obligations"
+        ],
+        [
+          "implementation",
+          "fee",
+          "milestone"
+        ]
+      ]
+    },
+    {
+      "id": "q027",
+      "text": "buyer told their bank the purchase was not authorised",
+      "type": "vocabulary_mismatch",
+      "topic": "finance:chargeback-handling",
+      "relevant": [
+        "finance:chargeback-handling"
+      ],
+      "facts": [
+        [
+          "cardholder",
+          "disputes",
+          "settled",
+          "transaction"
+        ],
+        [
+          "compelling",
+          "evidence",
+          "issuer",
+          "response",
+          "window"
+        ],
+        [
+          "monitoring",
+          "programme",
+          "additional",
+          "fees"
+        ]
+      ]
+    },
+    {
+      "id": "q028",
+      "text": "responding to cardholder disputes on settled transactions",
+      "type": "paraphrase",
+      "topic": "finance:chargeback-handling",
+      "relevant": [
+        "finance:chargeback-handling"
+      ],
+      "facts": [
+        [
+          "cardholder",
+          "disputes",
+          "settled",
+          "transaction"
+        ],
+        [
+          "compelling",
+          "evidence",
+          "issuer",
+          "response",
+          "window"
+        ],
+        [
+          "monitoring",
+          "programme",
+          "additional",
+          "fees"
+        ]
+      ]
+    },
+    {
+      "id": "q029",
+      "text": "clause 7.3 obligations",
+      "type": "exact_identifier",
+      "topic": "legal:7.3",
+      "relevant": [
+        "legal:7.3"
+      ],
+      "facts": [
+        [
+          "aggregate",
+          "liability",
+          "fees",
+          "paid",
+          "twelve",
+          "months"
+        ],
+        [
+          "death",
+          "personal",
+          "injury",
+          "fraud"
+        ],
+        [
+          "indirect",
+          "consequential",
+          "losses",
+          "excluded"
+        ]
+      ]
+    },
+    {
+      "id": "q030",
+      "text": "how much money could we owe if something goes badly wrong",
+      "type": "vocabulary_mismatch",
+      "topic": "legal:7.3",
+      "relevant": [
+        "legal:7.3"
+      ],
+      "facts": [
+        [
+          "aggregate",
+          "liability",
+          "fees",
+          "paid",
+          "twelve",
+          "months"
+        ],
+        [
+          "death",
+          "personal",
+          "injury",
+          "fraud"
+        ],
+        [
+          "indirect",
+          "consequential",
+          "losses",
+          "excluded"
+        ]
+      ]
+    },
+    {
+      "id": "q031",
+      "text": "cap on aggregate liability tied to fees paid",
+      "type": "paraphrase",
+      "topic": "legal:7.3",
+      "relevant": [
+        "legal:7.3"
+      ],
+      "facts": [
+        [
+          "aggregate",
+          "liability",
+          "fees",
+          "paid",
+          "twelve",
+          "months"
+        ],
+        [
+          "death",
+          "personal",
+          "injury",
+          "fraud"
+        ],
+        [
+          "indirect",
+          "consequential",
+          "losses",
+          "excluded"
+        ]
+      ]
+    },
+    {
+      "id": "q032",
+      "text": "clause 12.1 obligations",
+      "type": "exact_identifier",
+      "topic": "legal:12.1",
+      "relevant": [
+        "legal:12.1"
+      ],
+      "facts": [
+        [
+          "register",
+          "sub-processors"
+        ],
+        [
+          "thirty",
+          "days",
+          "notice"
+        ],
+        [
+          "controller",
+          "object",
+          "data",
+          "protection",
+          "grounds"
+        ]
+      ]
+    },
+    {
+      "id": "q033",
+      "text": "can a vendor hand our records to another company",
+      "type": "vocabulary_mismatch",
+      "topic": "legal:12.1",
+      "relevant": [
+        "legal:12.1"
+      ],
+      "facts": [
+        [
+          "register",
+          "sub-processors"
+        ],
+        [
+          "thirty",
+          "days",
+          "notice"
+        ],
+        [
+          "controller",
+          "object",
+          "data",
+          "protection",
+          "grounds"
+        ]
+      ]
+    },
+    {
+      "id": "q034",
+      "text": "sub-processor register and the notice requirement",
+      "type": "paraphrase",
+      "topic": "legal:12.1",
+      "relevant": [
+        "legal:12.1"
+      ],
+      "facts": [
+        [
+          "register",
+          "sub-processors"
+        ],
+        [
+          "thirty",
+          "days",
+          "notice"
+        ],
+        [
+          "controller",
+          "object",
+          "data",
+          "protection",
+          "grounds"
+        ]
+      ]
+    },
+    {
+      "id": "q035",
+      "text": "clause 4.8 obligations",
+      "type": "exact_identifier",
+      "topic": "legal:4.8",
+      "relevant": [
+        "legal:4.8"
+      ],
+      "facts": [
+        [
+          "initial",
+          "term",
+          "twenty-four",
+          "months"
+        ],
+        [
+          "automatic",
+          "renewal",
+          "twelve",
+          "month"
+        ],
+        [
+          "notice",
+          "ninety",
+          "days",
+          "renewal",
+          "date"
+        ]
+      ]
+    },
+    {
+      "id": "q036",
+      "text": "does the agreement keep going by itself once it ends",
+      "type": "vocabulary_mismatch",
+      "topic": "legal:4.8",
+      "relevant": [
+        "legal:4.8"
+      ],
+      "facts": [
+        [
+          "initial",
+          "term",
+          "twenty-four",
+          "months"
+        ],
+        [
+          "automatic",
+          "renewal",
+          "twelve",
+          "month"
+        ],
+        [
+          "notice",
+          "ninety",
+          "days",
+          "renewal",
+          "date"
+        ]
+      ]
+    },
+    {
+      "id": "q037",
+      "text": "initial term length and automatic renewal periods",
+      "type": "paraphrase",
+      "topic": "legal:4.8",
+      "relevant": [
+        "legal:4.8"
+      ],
+      "facts": [
+        [
+          "initial",
+          "term",
+          "twenty-four",
+          "months"
+        ],
+        [
+          "automatic",
+          "renewal",
+          "twelve",
+          "month"
+        ],
+        [
+          "notice",
+          "ninety",
+          "days",
+          "renewal",
+          "date"
+        ]
+      ]
+    },
+    {
+      "id": "q038",
+      "text": "clause 9.2 obligations",
+      "type": "exact_identifier",
+      "topic": "legal:9.2",
+      "relevant": [
+        "legal:9.2"
+      ],
+      "facts": [
+        [
+          "transaction",
+          "records",
+          "retained",
+          "seven",
+          "years"
+        ],
+        [
+          "personal",
+          "data",
+          "deleted",
+          "retention",
+          "basis"
+        ],
+        [
+          "deletion",
+          "evidenced",
+          "audit",
+          "register"
+        ]
+      ]
+    },
+    {
+      "id": "q039",
+      "text": "how long must we keep files before destroying them",
+      "type": "vocabulary_mismatch",
+      "topic": "legal:9.2",
+      "relevant": [
+        "legal:9.2"
+      ],
+      "facts": [
+        [
+          "transaction",
+          "records",
+          "retained",
+          "seven",
+          "years"
+        ],
+        [
+          "personal",
+          "data",
+          "deleted",
+          "retention",
+          "basis"
+        ],
+        [
+          "deletion",
+          "evidenced",
+          "audit",
+          "register"
+        ]
+      ]
+    },
+    {
+      "id": "q040",
+      "text": "retention period for transaction records",
+      "type": "paraphrase",
+      "topic": "legal:9.2",
+      "relevant": [
+        "legal:9.2"
+      ],
+      "facts": [
+        [
+          "transaction",
+          "records",
+          "retained",
+          "seven",
+          "years"
+        ],
+        [
+          "personal",
+          "data",
+          "deleted",
+          "retention",
+          "basis"
+        ],
+        [
+          "deletion",
+          "evidenced",
+          "audit",
+          "register"
+        ]
+      ]
+    },
+    {
+      "id": "q041",
+      "text": "POST /v2/invoices",
+      "type": "exact_identifier",
+      "topic": "product:POST /v2/invoices",
+      "relevant": [
+        "product:POST /v2/invoices"
+      ],
+      "facts": [
+        [
+          "customer",
+          "identifier",
+          "line",
+          "item"
+        ],
+        [
+          "idempotent",
+          "idempotency-key",
+          "header"
+        ],
+        [
+          "409",
+          "duplicate",
+          "key",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q042",
+      "text": "how do I raise a new bill for a client through the interface",
+      "type": "vocabulary_mismatch",
+      "topic": "product:POST /v2/invoices",
+      "relevant": [
+        "product:POST /v2/invoices"
+      ],
+      "facts": [
+        [
+          "customer",
+          "identifier",
+          "line",
+          "item"
+        ],
+        [
+          "idempotent",
+          "idempotency-key",
+          "header"
+        ],
+        [
+          "409",
+          "duplicate",
+          "key",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q043",
+      "text": "creating a draft invoice with line items",
+      "type": "paraphrase",
+      "topic": "product:POST /v2/invoices",
+      "relevant": [
+        "product:POST /v2/invoices"
+      ],
+      "facts": [
+        [
+          "customer",
+          "identifier",
+          "line",
+          "item"
+        ],
+        [
+          "idempotent",
+          "idempotency-key",
+          "header"
+        ],
+        [
+          "409",
+          "duplicate",
+          "key",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q044",
+      "text": "GET /v2/subscriptions",
+      "type": "exact_identifier",
+      "topic": "product:GET /v2/subscriptions",
+      "relevant": [
+        "product:GET /v2/subscriptions"
+      ],
+      "facts": [
+        [
+          "paginated",
+          "list",
+          "subscriptions"
+        ],
+        [
+          "cursor",
+          "parameter",
+          "page"
+        ],
+        [
+          "status",
+          "filter",
+          "active",
+          "cancelled"
+        ],
+        [
+          "page",
+          "size",
+          "defaults",
+          "fifty"
+        ]
+      ]
+    },
+    {
+      "id": "q045",
+      "text": "way to see every ongoing plan a buyer holds",
+      "type": "vocabulary_mismatch",
+      "topic": "product:GET /v2/subscriptions",
+      "relevant": [
+        "product:GET /v2/subscriptions"
+      ],
+      "facts": [
+        [
+          "paginated",
+          "list",
+          "subscriptions"
+        ],
+        [
+          "cursor",
+          "parameter",
+          "page"
+        ],
+        [
+          "status",
+          "filter",
+          "active",
+          "cancelled"
+        ],
+        [
+          "page",
+          "size",
+          "defaults",
+          "fifty"
+        ]
+      ]
+    },
+    {
+      "id": "q046",
+      "text": "paginated listing of subscription records",
+      "type": "paraphrase",
+      "topic": "product:GET /v2/subscriptions",
+      "relevant": [
+        "product:GET /v2/subscriptions"
+      ],
+      "facts": [
+        [
+          "paginated",
+          "list",
+          "subscriptions"
+        ],
+        [
+          "cursor",
+          "parameter",
+          "page"
+        ],
+        [
+          "status",
+          "filter",
+          "active",
+          "cancelled"
+        ],
+        [
+          "page",
+          "size",
+          "defaults",
+          "fifty"
+        ]
+      ]
+    },
+    {
+      "id": "q047",
+      "text": "retry.max_attempts",
+      "type": "exact_identifier",
+      "topic": "product:retry.max_attempts",
+      "relevant": [
+        "product:retry.max_attempts"
+      ],
+      "facts": [
+        [
+          "failed",
+          "webhook",
+          "delivery",
+          "retried"
+        ],
+        [
+          "backoff",
+          "exponential",
+          "jitter"
+        ],
+        [
+          "parked",
+          "deliveries",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q048",
+      "text": "stop it giving up so quickly when a callback fails",
+      "type": "vocabulary_mismatch",
+      "topic": "product:retry.max_attempts",
+      "relevant": [
+        "product:retry.max_attempts"
+      ],
+      "facts": [
+        [
+          "failed",
+          "webhook",
+          "delivery",
+          "retried"
+        ],
+        [
+          "backoff",
+          "exponential",
+          "jitter"
+        ],
+        [
+          "parked",
+          "deliveries",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q049",
+      "text": "bounding webhook delivery retries and backoff",
+      "type": "paraphrase",
+      "topic": "product:retry.max_attempts",
+      "relevant": [
+        "product:retry.max_attempts"
+      ],
+      "facts": [
+        [
+          "failed",
+          "webhook",
+          "delivery",
+          "retried"
+        ],
+        [
+          "backoff",
+          "exponential",
+          "jitter"
+        ],
+        [
+          "parked",
+          "deliveries",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q050",
+      "text": "index.refresh_interval",
+      "type": "exact_identifier",
+      "topic": "product:index.refresh_interval",
+      "relevant": [
+        "product:index.refresh_interval"
+      ],
+      "facts": [
+        [
+          "newly",
+          "written",
+          "documents",
+          "visible"
+        ],
+        [
+          "lowering",
+          "improves",
+          "freshness"
+        ],
+        [
+          "indexing",
+          "throughput",
+          "segment",
+          "churn"
+        ]
+      ]
+    },
+    {
+      "id": "q051",
+      "text": "new entries take too long before people can find them",
+      "type": "vocabulary_mismatch",
+      "topic": "product:index.refresh_interval",
+      "relevant": [
+        "product:index.refresh_interval"
+      ],
+      "facts": [
+        [
+          "newly",
+          "written",
+          "documents",
+          "visible"
+        ],
+        [
+          "lowering",
+          "improves",
+          "freshness"
+        ],
+        [
+          "indexing",
+          "throughput",
+          "segment",
+          "churn"
+        ]
+      ]
+    },
+    {
+      "id": "q052",
+      "text": "how often written documents become searchable",
+      "type": "paraphrase",
+      "topic": "product:index.refresh_interval",
+      "relevant": [
+        "product:index.refresh_interval"
+      ],
+      "facts": [
+        [
+          "newly",
+          "written",
+          "documents",
+          "visible"
+        ],
+        [
+          "lowering",
+          "improves",
+          "freshness"
+        ],
+        [
+          "indexing",
+          "throughput",
+          "segment",
+          "churn"
+        ]
+      ]
+    },
+    {
+      "id": "q053",
+      "text": "what are our net payment terms for enterprise invoices",
+      "type": "polysemy",
+      "topic": "finance:net-payment-terms",
+      "relevant": [
+        "finance:net-payment-terms"
+      ],
+      "facts": [
+        [
+          "net",
+          "sixty",
+          "invoice",
+          "issue",
+          "date"
+        ],
+        [
+          "ten",
+          "days",
+          "two",
+          "percent",
+          "discount"
+        ],
+        [
+          "interest",
+          "statutory",
+          "rate"
+        ],
+        [
+          "collections",
+          "ninety",
+          "days"
+        ]
+      ]
+    },
+    {
+      "id": "q054",
+      "text": "what is the initial contract term and does it renew",
+      "type": "polysemy",
+      "topic": "legal:4.8",
+      "relevant": [
+        "legal:4.8"
+      ],
+      "facts": [
+        [
+          "initial",
+          "term",
+          "twenty-four",
+          "months"
+        ],
+        [
+          "automatic",
+          "renewal",
+          "twelve",
+          "month"
+        ],
+        [
+          "notice",
+          "ninety",
+          "days",
+          "renewal",
+          "date"
+        ]
+      ]
+    },
+    {
+      "id": "q055",
+      "text": "customer disputed a settled card transaction with their bank",
+      "type": "polysemy",
+      "topic": "finance:chargeback-handling",
+      "relevant": [
+        "finance:chargeback-handling"
+      ],
+      "facts": [
+        [
+          "cardholder",
+          "disputes",
+          "settled",
+          "transaction"
+        ],
+        [
+          "compelling",
+          "evidence",
+          "issuer",
+          "response",
+          "window"
+        ],
+        [
+          "monitoring",
+          "programme",
+          "additional",
+          "fees"
+        ]
+      ]
+    },
+    {
+      "id": "q056",
+      "text": "how do we cap the amount we could be liable for",
+      "type": "polysemy",
+      "topic": "legal:7.3",
+      "relevant": [
+        "legal:7.3"
+      ],
+      "facts": [
+        [
+          "aggregate",
+          "liability",
+          "fees",
+          "paid",
+          "twelve",
+          "months"
+        ],
+        [
+          "death",
+          "personal",
+          "injury",
+          "fraud"
+        ],
+        [
+          "indirect",
+          "consequential",
+          "losses",
+          "excluded"
+        ]
+      ]
+    },
+    {
+      "id": "q057",
+      "text": "how long can a webhook keep retrying before it stops",
+      "type": "polysemy",
+      "topic": "product:retry.max_attempts",
+      "relevant": [
+        "product:retry.max_attempts"
+      ],
+      "facts": [
+        [
+          "failed",
+          "webhook",
+          "delivery",
+          "retried"
+        ],
+        [
+          "backoff",
+          "exponential",
+          "jitter"
+        ],
+        [
+          "parked",
+          "deliveries",
+          "replayed"
+        ]
+      ]
+    },
+    {
+      "id": "q058",
+      "text": "what does our DPA say about sub-processors",
+      "type": "acronym",
+      "topic": "legal:12.1",
+      "relevant": [
+        "legal:12.1"
+      ],
+      "facts": [
+        [
+          "register",
+          "sub-processors"
+        ],
+        [
+          "thirty",
+          "days",
+          "notice"
+        ],
+        [
+          "controller",
+          "object",
+          "data",
+          "protection",
+          "grounds"
+        ]
+      ]
+    },
+    {
+      "id": "q059",
+      "text": "MTTR expectations when tail latency regresses",
+      "type": "acronym",
+      "topic": "support:ERR-5503",
+      "relevant": [
+        "support:ERR-5503:billing:ap-south-1",
+        "support:ERR-5503:billing:eu-west-1",
+        "support:ERR-5503:billing:us-east-1",
+        "support:ERR-5503:checkout:ap-south-1",
+        "support:ERR-5503:checkout:eu-west-1",
+        "support:ERR-5503:checkout:us-east-1",
+        "support:ERR-5503:identity:ap-south-1",
+        "support:ERR-5503:identity:eu-west-1",
+        "support:ERR-5503:identity:us-east-1",
+        "support:ERR-5503:payments:ap-south-1",
+        "support:ERR-5503:payments:eu-west-1",
+        "support:ERR-5503:payments:us-east-1",
+        "support:ERR-5503:search:ap-south-1",
+        "support:ERR-5503:search:eu-west-1",
+        "support:ERR-5503:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "confirm",
+          "connection",
+          "pool",
+          "saturation"
+        ],
+        [
+          "inspect",
+          "slow",
+          "query",
+          "logs"
+        ],
+        [
+          "compare",
+          "deployment",
+          "marker"
+        ],
+        [
+          "roll",
+          "back",
+          "release"
+        ]
+      ]
+    },
+    {
+      "id": "q060",
+      "text": "SLA impact of connection pool exhaustion",
+      "type": "acronym",
+      "topic": "support:ERR-6142",
+      "relevant": [
+        "support:ERR-6142:billing:ap-south-1",
+        "support:ERR-6142:billing:eu-west-1",
+        "support:ERR-6142:billing:us-east-1",
+        "support:ERR-6142:checkout:ap-south-1",
+        "support:ERR-6142:checkout:eu-west-1",
+        "support:ERR-6142:checkout:us-east-1",
+        "support:ERR-6142:identity:ap-south-1",
+        "support:ERR-6142:identity:eu-west-1",
+        "support:ERR-6142:identity:us-east-1",
+        "support:ERR-6142:payments:ap-south-1",
+        "support:ERR-6142:payments:eu-west-1",
+        "support:ERR-6142:payments:us-east-1",
+        "support:ERR-6142:search:ap-south-1",
+        "support:ERR-6142:search:eu-west-1",
+        "support:ERR-6142:search:us-east-1"
+      ],
+      "facts": [
+        [
+          "identify",
+          "long-running",
+          "transactions"
+        ],
+        [
+          "confirm",
+          "pool",
+          "ceiling",
+          "database",
+          "maximum"
+        ],
+        [
+          "terminate",
+          "idle",
+          "sessions"
+        ]
+      ]
+    }
+  ],
+  "unanswerable": [
+    {
+      "id": "u001",
+      "text": "ERR-9001 remediation steps",
+      "type": "unanswerable",
+      "absent": "err-9001"
+    },
+    {
+      "id": "u002",
+      "text": "ERR-1200 rollback procedure for the payments service",
+      "type": "unanswerable",
+      "absent": "err-1200"
+    },
+    {
+      "id": "u003",
+      "text": "clause 15.4 obligations",
+      "type": "unanswerable",
+      "absent": "15.4"
+    },
+    {
+      "id": "u004",
+      "text": "clause 22.9 termination for convenience",
+      "type": "unanswerable",
+      "absent": "22.9"
+    },
+    {
+      "id": "u005",
+      "text": "DELETE /v2/refunds request body",
+      "type": "unanswerable",
+      "absent": "v2/refunds"
+    },
+    {
+      "id": "u006",
+      "text": "GET /v2/disputes pagination cursor",
+      "type": "unanswerable",
+      "absent": "v2/disputes"
+    },
+    {
+      "id": "u007",
+      "text": "cryptocurrency settlement policy for customer payments",
+      "type": "unanswerable",
+      "absent": "cryptocurrency"
+    },
+    {
+      "id": "u008",
+      "text": "carbon reporting obligations under the framework agreement",
+      "type": "unanswerable",
+      "absent": "carbon"
+    },
+    {
+      "id": "u009",
+      "text": "parental leave entitlement for contractors",
+      "type": "unanswerable",
+      "absent": "parental"
+    },
+    {
+      "id": "u010",
+      "text": "on-call compensation rates for weekend shifts",
+      "type": "unanswerable",
+      "absent": "compensation"
+    },
+    {
+      "id": "u011",
+      "text": "queue.max_inflight configuration reference",
+      "type": "unanswerable",
+      "absent": "queue.max_inflight"
+    },
+    {
+      "id": "u012",
+      "text": "index.max_shards tuning guidance",
+      "type": "unanswerable",
+      "absent": "index.max_shards"
+    }
+  ]
+}
