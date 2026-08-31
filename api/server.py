@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 from config import RETRIEVER, TOP_K
 from llm import client as llm
+from monitoring.drift import DriftMonitor
 from monitoring.metrics import metrics
 from rag.pipeline import RAGPipeline
 from rag.reranker import is_fitted
@@ -35,6 +36,15 @@ API_VERSION = "v1"
 api = APIRouter()
 
 pipeline = RAGPipeline()
+
+# Top retrieval score against the distribution the evaluation query set produces
+# on this corpus. A collapse means questions are arriving that the corpus no
+# longer answers well -- worth knowing before someone reports bad answers.
+# Both ends move here: the meeting service ingests into this corpus.
+ARTIFACT_DIR = Path(__file__).resolve().parents[1] / "models" / "artifacts"
+drift_monitor = DriftMonitor.from_file(
+    ARTIFACT_DIR / "drift_reference.json", name="retrieval_score"
+)
 CORPUS_PATH = Path(__file__).resolve().parents[1] / "datasets" / "corpus.json"
 
 
@@ -167,6 +177,7 @@ def query(q: str, http_request: Request, _: None = Depends(require_api_key)):
 
     metrics.increment("rag_queries_total")
     response = pipeline.query(q)
+    drift_monitor.observe(response["retrieval_score"])
     save_event(
         "rag_query",
         {"query": q, "retrieval_score": response["retrieval_score"],
@@ -180,12 +191,19 @@ def query(q: str, http_request: Request, _: None = Depends(require_api_key)):
 def query_post(request: QueryRequest, http_request: Request):
     metrics.increment("rag_queries_total")
     response = pipeline.query(request.query)
+    drift_monitor.observe(response["retrieval_score"])
     save_event(
         "rag_query",
         {"query": request.query, "retrieval_score": response["retrieval_score"],
          "groundedness": response["groundedness"], "mode": response["mode"]},
     )
     return {"response": response}
+
+
+@api.get("/drift", dependencies=[Depends(require_api_key)])
+def drift():
+    """Is the corpus still answering the kind of questions being asked?"""
+    return drift_monitor.report()
 
 
 @app.get("/version")
