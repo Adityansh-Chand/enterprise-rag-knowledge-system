@@ -202,6 +202,45 @@ This is reported rather than tuned away, and the README claim is worded to match
 result. `rag/reranker.py` returns the input order unchanged when no fitted artifact is
 present — an honest no-op is better than a fake improvement.
 
+### Was the fitted reranker simply too weak?
+
+That is the fair objection to a null result, and it needed answering: "reranking
+does not help here" and "our reranker is bad" have opposite implications. So a
+pretrained **cross-encoder** — `ms-marco-MiniLM-L-6-v2`, Apache 2.0 — was benched
+as the strong reference point. It reads query and document together through a
+transformer rather than comparing independent representations, which is exactly
+the signal a bag of features cannot see.
+
+```bash
+python evaluation/rerank_bench.py --beir nfcorpus
+```
+
+**BEIR/NFCorpus, human relevance judgments, dense retrieval, depth 20:**
+
+| Arm | nDCG@10 | Δ | MRR@10 | ms/query |
+|---|---|---|---|---|
+| no reranking | **0.3727** | — | 0.5662 | 0.0 |
+| fitted pairwise | 0.3664 | −0.0063 | 0.5702 | 4.5 |
+| cross-encoder (MiniLM-L-6) | 0.3738 | **+0.0011** | **0.5847** | **1116.4** |
+
+On our synthetic corpus the cross-encoder is *worse* (−0.0174).
+
+**The question is answered: the fitted reranker was not the problem.** A strong,
+purpose-built cross-encoder buys **+0.0011 nDCG@10 for 1.1 seconds per query** —
+roughly 250× the cost of the fitted model for a difference indistinguishable from
+noise.
+
+One honest nuance in the other direction: MRR@10 does improve, 0.5662 → **0.5847**.
+The cross-encoder genuinely does reorder the very top of the list better. It just
+does not move nDCG@10, and Recall@10 cannot move at all — reordering a fixed
+candidate list cannot add documents to it, which is asserted as a sanity check on
+the harness itself.
+
+**So it is benched and not shipped.** The cross-encoder is not in the serving
+path: paying a second per query for +0.0011 would be a worse decision than the
+null result it was brought in to test. Deciding *not* to ship a component after
+measuring it is the point of measuring it.
+
 ## Answers and groundedness
 
 `rag/generator.py` selects the sentences that actually respond to the query, cites the
@@ -361,7 +400,8 @@ a write path, it does not change how ranking works.
   ignored `k` and substring-matched a joined string.
 - A synthetic corpus engineered so the methods disagree, with the
   `vocabulary_mismatch` guarantee enforced by a test rather than asserted.
-- A fitted reranker whose **null result is reported**.
+- A fitted reranker whose **null result is reported**, and a pretrained
+  cross-encoder benched against it to prove the null was the task and not the model.
 - Groundedness as a checkable property of each answer.
 - Corpus and reranker reproducible, verified in CI.
 
