@@ -11,7 +11,11 @@ from llm import client as llm
 from monitoring.metrics import metrics
 from rag.pipeline import RAGPipeline
 from rag.reranker import is_fitted
-from utils.security import request_id_middleware, require_api_key
+from utils.security import (
+    current_request_id,
+    request_id_middleware,
+    require_api_key,
+)
 from utils.storage import recent_events, save_event
 
 
@@ -115,12 +119,18 @@ def metrics_endpoint():
 
 
 @api.get("/events", dependencies=[Depends(require_api_key)])
-def events(limit: int = 20):
-    return {"events": recent_events(limit=min(limit, 100))}
+def events(limit: int = 20, request_id: str | None = None):
+    """Recent events, optionally narrowed to one request id.
+
+    `request_id` is what makes this endpoint a trace source rather than a log
+    tail: the portfolio's scripts/trace.py asks all five services the same
+    question and joins the answers into one timeline.
+    """
+    return {"events": recent_events(limit=min(limit, 100), request_id=request_id)}
 
 
 @api.post("/documents", dependencies=[Depends(require_api_key)])
-def ingest_document(request: DocumentRequest):
+def ingest_document(request: DocumentRequest, http_request: Request):
     """Add a passage to the corpus and rebuild the index.
 
     This is what lets other services contribute knowledge -- the meeting service
@@ -140,6 +150,7 @@ def ingest_document(request: DocumentRequest):
     save_event(
         "rag_ingest",
         {"doc_id": request.doc_id, "source": request.source, "chunks": chunks},
+        current_request_id(http_request),
     )
     return {
         "doc_id": request.doc_id,
@@ -150,7 +161,7 @@ def ingest_document(request: DocumentRequest):
 
 
 @api.get("/query")
-def query(q: str, _: None = Depends(require_api_key)):
+def query(q: str, http_request: Request, _: None = Depends(require_api_key)):
     if not q.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
@@ -160,12 +171,13 @@ def query(q: str, _: None = Depends(require_api_key)):
         "rag_query",
         {"query": q, "retrieval_score": response["retrieval_score"],
          "groundedness": response["groundedness"], "mode": response["mode"]},
+        current_request_id(http_request),
     )
     return {"response": response}
 
 
 @api.post("/query", dependencies=[Depends(require_api_key)])
-def query_post(request: QueryRequest):
+def query_post(request: QueryRequest, http_request: Request):
     metrics.increment("rag_queries_total")
     response = pipeline.query(request.query)
     save_event(
