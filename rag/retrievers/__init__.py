@@ -2,6 +2,7 @@ from rag.retrievers.base import Retriever
 from rag.retrievers.bm25 import BM25Retriever
 from rag.retrievers.dense import DenseRetriever
 from rag.retrievers.hybrid import HybridRetriever
+from rag.retrievers.router import RouterRetriever
 from rag.retrievers.lsa import LSARetriever
 
 __all__ = [
@@ -30,6 +31,8 @@ def build_retriever(name: str, **kwargs):
         return DenseRetriever(**kwargs)
     if name == "hybrid":
         return HybridRetriever(BM25Retriever(), DenseRetriever(**kwargs))
+    if name == "router":
+        return RouterRetriever(BM25Retriever(), DenseRetriever(**kwargs))
     raise ValueError(
-        f"unknown retriever {name!r}; supported: bm25, lsa, dense, hybrid"
+        f"unknown retriever {name!r}; supported: bm25, lsa, dense, hybrid, router"
     )

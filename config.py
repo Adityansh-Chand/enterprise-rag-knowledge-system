@@ -9,7 +9,8 @@ import os
 # bm25 | lsa | dense | hybrid  -- see rag/retrievers/
 # Default is bm25 so a fresh clone starts instantly and the smoke test needs no
 # model download. The dense and hybrid retrievers score materially better (see
-# the bench in the README) -- switch with RETRIEVER=hybrid, which downloads the
+# the bench in the README) -- switch with RETRIEVER=router or RETRIEVER=dense,
+# which download the
 # embedding model on first use.
 RETRIEVER = os.getenv("RETRIEVER", "bm25")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-base-en-v1.5")
